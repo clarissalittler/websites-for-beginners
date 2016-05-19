@@ -1,0 +1,74 @@
+#+TITLE: Making Websites for Beginners
+#+AUTHOR: Clarissa Littler
+#+OPTIONS: H:2 toc:nil
+#+startup: beamer
+#+BEAMER_THEME: Madrid
+#+LaTeX_CLASS: beamer
+
+* Project outline						   :noexport:
+** Requirements for a project 
+   First, what we need for a project is something that will show
+   + some CSS
+   + some HTML
+   + a very limited amount of JavaScript
+
+this kind of project should be something like a small site that has
+   + a menu that drops down and gives options
+   + has several columns, each of which is formatted differently
+   + uses semantic markup such as
+     + =strong=
+     + =em=
+     + =s=
+     + =small=
+     + =b=
+     + =i=
+   + includes both block and inline elements
+   + uses a number of divs and spans for marking up text
+** Project Idea
+*** Your biographic site
+    The idea here is that you make a small site that lays out your interests and your hobbies and your life story.
+    
+    As an example site, let's consider something like the following
+    #+BEGIN_SRC html :exports none :tangle MyselfMain.html
+      <!doctype html>
+      <html>
+        <head>
+	  <style>
+	    .col {
+	      height: 90vh; 
+	      width: 33%;
+	      border: 3px solid black;
+	      float: left;
+	    }
+	    html {
+	      min-height: 100%;
+	      position: relative;
+	    }
+	  </style>
+        </head>
+        <body>
+          <header>
+            <h1>My Own Domain</h1>
+            <p>by Ms. Littler</p>
+          </header>
+
+	  <nav>
+            <ul>
+              <li style="display: inline;"> Biography </li>
+              <li style="display: inline;"> Hobbies </li>
+              <li style="display: inline;"> Plans for World Domination </li>
+            </ul>
+          </nav>
+
+          <div class="col">
+            asdfasdfasdfasdfasdfasdfasdfsadfasdf
+          </div>
+          <div class="col">
+            asdfsdfsadfasdfsadfasdfasdfasdfasdfasdfasdf
+          </div>
+          <div class="col">
+            asdfasdfasdfasdfasdfadsfadsfasdfasdfasdfasdfasdfasdf
+          </div>
+        </body>
+      </html>
+    #+END_SRC
