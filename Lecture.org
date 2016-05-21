@@ -72,3 +72,108 @@ this kind of project should be something like a small site that has
         </body>
       </html>
     #+END_SRC
+
+* What is this class?
+** What we'll cover
+   + The basic technology that goes into a webpage/site
+** What we won't cover
+   + How to build the back-end of a site \pause
+   + How to program in JavaScript in general \pause
+     + Though there are free supplements for that \pause
+   + A majority of CSS and HTML
+** Class mechanics
+   + Two hours \pause
+   + Project based \pause
+     + I'll show.. \pause
+     + and you follow
+** What will we build?
+   (Show off the website we're building)
+* What is a website?
+** Client vs. server
+** How your browser loads a site
+** The three pieces of a web page
+   + HTML \pause
+   + CSS \pause
+   + JavaScript
+** HTML
+  + The /content/ of the page \pause
+    + Text \pause
+    + Images \pause
+    + Links \pause
+    + Lists \pause
+    + ... \pause
+  + But not how it looks /per se/
+** CSS
+   + The /look/ of the page \pause
+     + Text color \pause
+     + Background color \pause
+     + Size \pause
+     + Font \pause
+     + ... \pause
+   + But not what's /on/ the page
+** JavaScript
+   + The /dynamics/ of the page \pause
+     + What happens when you click \pause
+     + What happens when you move your mouse \pause
+     + What happens when you type \pause
+     + ... \pause
+   + Modifies both HTML and CSS as you use the site
+* Basic HTML
+** Our base page
+** What *is* hypertext?
+** Tags and Elements
+** Attributes
+** Links
+** Ordered lists
+** Unordered lists
+** Paragraphs
+** Headers
+** Buttons
+** Semantic Markup
+** Marking up text
+** Section
+** Article
+** Div
+** Span
+* Project Time I
+** What the pages will look like
+** How we'll do it
+* CSS
+** Our page with CSS
+** Cascading Style Sheets
+** Adding CSS to a page
+** Choosing elements by ID
+** Example: styling your concluding paragraph 
+** Choosing elements by class
+** Example: 
+** Choosing elements by type
+** Example: styling block quotes
+** Combining all of them
+** Putting the cascade in CSS
+** Styling Divs and Spans
+** Div
+** Example: columns with divs
+** Span
+** Example: styling text with spans
+* Project Time II
+** What the pages will look like
+** How we'll do it
+* JavaScript
+** Our page with JavaScript
+** What is JavaScript?
+** Why JavaScript?
+** A smidgen of JavaScript
+** The Document Object Model (DOM)
+** Example: Hiding and showing text
+* Project Time III
+** What the pages will look like
+** How we'll do it
+* Wrapup
+** What we've learned
+** What to learn next
+   + More HTML tags \pause
+   + So much more CSS \pause
+   + Frameworks for styling \pause
+     + Bootstrap is a very popular one \pause
+   + JavaScript programming
+** Questions?
