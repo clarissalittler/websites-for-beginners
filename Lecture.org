@@ -91,6 +91,13 @@ this kind of project should be something like a small site that has
 * What is a website?
 ** Client vs. server
 ** How your browser loads a site
+   + Find the server \pause
+   + Request the page \pause
+   + Receive the page \pause
+   + Render the page
+** Finding the server: DNS
+** Talking to the server: HTTP
+** Rendering the webpage
 ** The three pieces of a web page
    + HTML \pause
    + CSS \pause
@@ -161,15 +168,42 @@ this kind of project should be something like a small site that has
 * JavaScript
 ** Our page with JavaScript
 ** What is JavaScript?
+   + A general purpose programming language \pause
+   + Programming languages express computation \pause
+   + 
 ** Why JavaScript?
-** A smidgen of JavaScript
+** A smidgen of JavaScript: I
+** A smidgen of JavaScript: II
 ** The Document Object Model (DOM)
+   + Document Object Model (DOM) \pause
+   + HTML $\Longleftrightarrow$ JavaScript \pause
+   +  
 ** Example: Hiding and showing text
 * Project Time III
 ** What the pages will look like
 ** How we'll do it
 * Wrapup
 ** What we've learned
+   + What a webpage is \pause
+     + HTML \pause
+     + CSS \pause
+     + JavaScript \pause
+** What we've learned
+   + HTML \pause
+     + Elements \pause
+     + Tags \pause
+     + Semantic markup
+     + Content, not appearance
+** What we've learned
+   + CSS \pause
+     + Style, not substance \pause
+     + Selectors \pause
+     + Classes
+** What we've learned     
+   + JavaScript \pause
+     + A general purpose programming language \pause
+     + Can be run by every browser \pause
+     + Connects to HTML via Document Object Model
 ** What to learn next
    + More HTML tags \pause
    + So much more CSS \pause
