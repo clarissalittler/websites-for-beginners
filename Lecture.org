@@ -11,7 +11,6 @@
    + some CSS
    + some HTML
    + a very limited amount of JavaScript
-
 this kind of project should be something like a small site that has
    + a menu that drops down and gives options
    + has several columns, each of which is formatted differently
@@ -33,18 +32,32 @@ this kind of project should be something like a small site that has
       <!doctype html>
       <html>
         <head>
-	  <style>
-	    .col {
-	      height: 90vh; 
-	      width: 33%;
-	      border: 3px solid black;
-	      float: left;
-	    }
-	    html {
-	      min-height: 100%;
-	      position: relative;
-	    }
-	  </style>
+          <style>
+            .col {
+              width: 33%;
+              border: 3px solid black;
+              float: left;
+            }
+            html {
+              min-height: 100%;
+              position: relative;
+            }
+            .keyword {
+              color: crimson;
+            }
+          </style>
+          <script>
+            function toggleContent(id){
+              var el = document.getElementById(id);
+              if (el.style.display === "none"){
+           
+              }
+            }
+      
+            window.onload = function () {
+        
+            }
+          </script>
         </head>
         <body>
           <header>
@@ -52,22 +65,48 @@ this kind of project should be something like a small site that has
             <p>by Ms. Littler</p>
           </header>
 
-	  <nav>
+          <nav>
             <ul>
-              <li style="display: inline;"> Biography </li>
-              <li style="display: inline;"> Hobbies </li>
-              <li style="display: inline;"> Plans for World Domination </li>
+              <li style="display: inline;", id="hobbieslink">Hobbies</li>
+              <li style="display: inline;", id="biolink">Biography</li>
+              <li style="display: inline;", id="worlddomination">Plans for World Domination</li>
             </ul>
           </nav>
 
           <div class="col">
-            asdfasdfasdfasdfasdfasdfasdfsadfasdf
+            <h2>My hobbies</h2>
+            <div id="hobbies">
+              <ol>
+                <li> Wearing ill-fitting hats </li>
+                <li> Holding chickens </li>
+                <li> Whispering voicelessly into the night, hoping something wicked answers. </li>
+              </ol>
+            </div>
           </div>
+    
           <div class="col">
-            asdfsdfsadfasdfsadfasdfasdfasdfasdfasdfasdf
+            <h2>About me</h2>
+            <div >
+            <p>
+            A total nerd who smells like wet dog.
+            </p>
+            <p>
+            Like. <span class="keyword">Always</span>.
+            </p>
+            <p>
+              <small>it's all very strange</small>
+            </p>
+            </div>
           </div>
+    
           <div class="col">
-            asdfasdfasdfasdfasdfadsfadsfasdfasdfasdfasdfasdfasdf
+            <h4>And here we have a touch of JavaScript</h4>
+            <ul id="collapse">
+              <li> Here is a collapseable list </li>
+              <li> That has a number of elements </li>
+              <li> Which should appear when we mouse over </li>
+              <li> And disappear when we mouse away </li>
+            </ul>
           </div>
         </body>
       </html>
@@ -132,7 +171,44 @@ this kind of project should be something like a small site that has
 ** Attributes
 ** Links
 ** Ordered lists
+*** Ordered lists in HTML 					      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+   + ordered lists \pause
+   + lists that start with /numbers/ \pause   
+
+#+BEGIN_SRC html :exports none :tangle olistExample.html
+  <!doctype html>
+
+  <html>
+    <body>
+      <ol>
+        <li>These</li>
+        <li>Are</li>
+        <li>Items</li>
+        <li>In</li>
+        <li>A</li>
+        <li>List</li>
+      </ol>
+    </body>
+  </html>
+#+END_SRC
+*** What it looks like						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** 
+     Insert image of the example 
 ** Unordered lists
+*** Unordered lists in HTML					      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+*** What it looks like						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
 ** Paragraphs
 ** Headers
 ** Buttons
