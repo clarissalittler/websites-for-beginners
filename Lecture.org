@@ -169,7 +169,18 @@ this kind of project should be something like a small site that has
 ** What *is* hypertext?
 ** Tags and Elements
 ** Attributes
-** Links
+** The basic template
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <body>
+      ...
+    </body>
+  </html>
+#+END_SRC
+** External Links
+** Internal Links
 ** Ordered lists
 *** Ordered lists in HTML 					      :BMCOL:
     :PROPERTIES:
@@ -205,35 +216,194 @@ this kind of project should be something like a small site that has
     :PROPERTIES:
     :BEAMER_col: 0.4
     :END:
+    + Unnumbered lists \pause
+    + Bullet points by default \pause
+    + Called "unordered" \pause
+    + Still *appears* in order
+#+BEGIN_SRC html :exports none :tangle ulistExample.html
+  <!doctype html>
+  <html>
+    <body>
+      <ul>
+        <li>These</li>
+        <li>Are</li>
+        <li>Unordered</li>
+        <li>List</li>
+        <li>Items</li>
+      </ul>
+    </body>
+  </html>
+#+END_SRC
 *** What it looks like						      :BMCOL:
     :PROPERTIES:
     :BEAMER_col: 0.4
     :END:
+**** 
+     Insert image of the example
 ** Paragraphs
-** Headers
-** Buttons
+   + Paragraphs in HTML are paragraphs of text \pause
+   + 
+** Headings
+   + Large text denoting sections and title \pause
+   + =<h1>= through =<h5>= \pause
+   + The bigger the number the smaller
+** Heading Example
+*** Headings in HTML
+    #+BEGIN_SRC html :exports code :tangle headingsExample.html
+      <!doctype html>
+      <html>
+        <body>
+          <h1>A big heading</h1>
+          <h2>A slightly smaller heading</h2>
+          <h3>Even smaller</h3>
+          <h4>Smaller</h4>
+          <h5>Pretty darn small</h5>
+        </body>
+      <html>
+    #+END_SRC
+*** How they look
+    (insert image)
+** Table
+** Table Examples
 ** Semantic Markup
+   + HTML is about meaning \pause
+   + HTML 
 ** Marking up text
-** Section
+*** Ways to format text						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+*** How it looks						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
 ** Article
+** Section
+** Header
+** Inline and Block Elements
 ** Div
+   + =<div>= tag \pause
+   + Logically groups content together \pause
+   + Doesn't change appearance \pause
+   + Wrap any example in a =<div>= and it's unchanged \pause
+   + A /handle/ for code and CSS to change content
 ** Span
+   + =<span>= tag \pause
+   + Like =<div>= but for in-line elements \pause
+** Elements we haven't discussed 
 * Project Time I
 ** What the pages will look like
 ** How we'll do it
 * CSS
 ** Our page with CSS
 ** Cascading Style Sheets
+   + How do we change font? \pause
+   + How do we add background color? \pause
+   + 
 ** Adding CSS to a page
+** Common attributes
+   + =color= \pause
+   + =background-color= \pause
+   + =height= \pause
+   + =width= \pause
+   + =display= \pause
+   + ...
 ** Choosing elements by ID
-** Example: styling your concluding paragraph 
+   #+BEGIN_SRC css :exports code
+     #thing1 {
+         color: crimson;
+         height: 100px;
+     }
+   #+END_SRC
+** Example: styling your concluding paragraph
+*** HTML and CSS						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+#+BEGIN_SRC html :exports code :tangle idSelectionExample.html
+  <!doctype html>
+  <html>
+    <head>
+      <style>
+        #ending {
+          font-weight: bold;
+          color: darkgreen;
+        }
+      </style>
+    </head>
+    <body>
+      <article>
+        <p>
+          Here's some text and some things that we want to express.
+        </p>
+        ...
+        <p id="ending">
+          And this our final triumphant paragraph. All the text in it should be boldy, triumphantly green.
+        </p>
+      </article>
+    </body>
+  </html>
+#+END_SRC
+*** What it looks like						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+(insert image)
 ** Choosing elements by class
-** Example: 
+   #+BEGIN_SRC css :exports code
+     .thisClass {
+         font-style: oblique;
+     }
+   #+END_SRC
+** Example: styling like a screenplay
+#+BEGIN_SRC html :exports code :tangle screenplayExample.html
+  <!doctype html>
+  <html>
+    <head>
+      <style>
+        .character1 {
+          color: crimson;
+          text-align: left;
+        }
+        .character2 {
+          color: darkgreen;
+          text-align: right;
+        }
+        .description {
+          font-weight: bold;
+          text-align: center;
+        }
+        .script {
+          width: 700px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="script">
+        <p class="description">
+          Our scene begins with two chickens, discussing existence.
+        </p>
+        <p class="character1">
+          Chicken 1: Who am I and why do I want to cross the road?
+        </p>
+        <p class="character2">
+          Chicken 2: Verily, you want to cross the road to get to the other side.
+        </p>
+        <p class="description">
+          Thus ends our reinterpretation of Waiting for Godot
+        </p>
+      </div>
+    </body>
+  </html>
+#+END_SRC
 ** Choosing elements by type
 ** Example: styling block quotes
 ** Combining all of them
 ** Putting the cascade in CSS
 ** Styling Divs and Spans
+   + =<div>= and =<span>= are logical groupings \pause
+   + These groups can be used to style content \pause
+   + 
 ** Div
 ** Example: columns with divs
 ** Span
@@ -254,6 +424,8 @@ this kind of project should be something like a small site that has
    + Document Object Model (DOM) \pause
    + HTML $\Longleftrightarrow$ JavaScript \pause
    +  
+** Events
+** Finding elements with code
 ** Example: Hiding and showing text
 * Project Time III
 ** What the pages will look like
@@ -275,7 +447,7 @@ this kind of project should be something like a small site that has
      + Style, not substance \pause
      + Selectors \pause
      + Classes
-** What we've learned     
+** What we've learned
    + JavaScript \pause
      + A general purpose programming language \pause
      + Can be run by every browser \pause
