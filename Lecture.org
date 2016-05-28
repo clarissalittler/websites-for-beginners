@@ -363,11 +363,11 @@ this kind of project should be something like a small site that has
       <style>
         .character1 {
           color: crimson;
-          text-align: left;
+	  text-align: left;
         }
         .character2 {
           color: darkgreen;
-          text-align: right;
+	  text-align: right;
         }
         .description {
           font-weight: bold;
