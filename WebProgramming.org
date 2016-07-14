@@ -1,0 +1,173 @@
+#+TITLE: Intro to Web Programming
+#+AUTHOR: Clarissa Littler
+#+OPTIONS: H:2 toc:nil
+#+startup: beamer
+#+BEAMER_THEME: Madrid
+#+LaTeX_CLASS: beamer
+
+* What is this class?
+** What we'll be covering?
+** What we *won't* cover
+   + All of JavaScript \pause
+   + How to write a server \pause
+   + How HTML and CSS work \pause
+   + How to use frameworks to build a site
+** The point of this course
+   + Start you on the right track \pause
+   + Give a taste for what web-programming is \pause
+   + Explain the basic pieces
+* What is a web site?
+** Client and server
+*** 
+   Two pieces that talk to each other to make a site
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Server
+     + Sends data to the browser
+     + Saves information for long term use
+     + Receives requests from the client
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Client
+     + Receives data from the server
+     + Renders server data into a usable page
+     + Handles the user interface
+* Review of HTML and CSS
+** Basics of HTML
+*** 
+    HyperText Markup Language (HTML) is a language that uses /nested tags/ to denote what elements a page has and what it should mean
+** Common tags
+   + =<h1>= $\ldots$ =<h6>= \pause
+   + =<ol>=, =<ul>=, =<li>= \pause
+   + =<button>= \pause
+   + =<input>= \pause
+   + 
+** CSS
+** Selection methods
+** Common propeties
+* What is programming?
+** Programming as instructions
+** Programming as language
+** What are programming languages?
+* Basic JavaScript
+** JavaScript in the browser
+** Script tag
+** JavaScript console
+** What do we need to know?
+   + Bare bones JavaScript \pause
+   + Arithmetic \pause
+   + Strings \pause
+   + Variables \pause
+   + Objects \pause
+   + Functions
+** Arithmetic
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Numbers
+     + 1
+     + 0.5
+     + -20
+     + $\ldots$
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Operations
+     + =+=
+     + =-=
+     + =*=
+     + $\ldots$
+     
+** Variables
+   + Need to /store/ data \pause
+   + Variables \pause
+   + The pronouns and nouns of programming \pause
+   + I have a friend who \pause
+** Variables as containers
+** Variables as pointers
+** Creating Variables
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** 
+#+BEGIN_SRC js :exports code
+  var *name-of-variable* = *initial-value-in-it*;
+#+END_SRC
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** 
+#+BEGIN_SRC js :exports code
+  var numberOfToes = 10;
+#+END_SRC
+**** 
+#+BEGIN_SRC js :exports code
+  var musicalIllNeverHaveTicketsTo = "Hamilton";
+#+END_SRC
+** Assigning variables
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** 
+#+BEGIN_SRC js :exports code
+  *name-of-variable* = *new-value*
+#+END_SRC
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** 
+#+BEGIN_SRC js :exports code
+  var musicalIllNeverHaveTicketsTo = "The Walking Dead: Live!";
+#+END_SRC
+**** 
+#+BEGIN_SRC js :exports code
+  var musicalIllNeverHaveTicketsTo = "Spider-Man: Turn Off the Dark";
+#+END_SRC
+** Functions 
+** Functions as calculations
+** Functions as repeatable code
+** Calling functions
+** Making functions
+** Passing in data
+** Objects
+   + Objects collect data \pause
+   + Pairs of /properties/ and /values/
+   + ={ property1 : 0, property2 : 1}= \pause
+** Objects as storage
+* The Document Object Model
+** What is the Document Object Model?
+   + In order to 
+** Why do we need it?
+** The DOM as a tree
+** Looking at the DOM in the console
+** Important DOM objects
+* Programming the Document Object Model
+** When to load code
+** Finding elements
+** getElementByID
+** Changing the CSS class
+** Changing CSS properties
+** Events
+** Event loop
+** Listening to events
+** Stopping events
+** Example: a button that changes the site
+** Example: collapsing menus
+** Getting data from forms
+** Example: a todo list
+* The server
+** Recap: the server's role
+** Communicating with the server
+** Node: an introduction
+** Synchronous vs. Asynchronous
+** 

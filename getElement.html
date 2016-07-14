@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.onload = function () {
+        var newItem = document.createElement("li");
+        newItem.appendChild(document.createTextNode("item in the second list"));
+        var secondList = document.getElementById("list2");
+        secondList.appendChild(newItem);
+      };
+    </script>
+  </head>
+  <body>
+    <ol id="list1">
+      <li>This is a list</li>
+    </ol>
+    <ol id="list2">
+      <li>This is our second list</li>
+    </ol>
+  </body>
+</html>

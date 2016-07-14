@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+  <head>
+    <script>
+      window.onload = function () {
+        var list = document.getElementById("list");
+        var div = document.getElementById("content");
+        div.addEventListener("mouseover", function () {
+            list.style.display = "block";
+        });
+        div.addEventListener("mouseleave", function () {
+            list.style.display = "none";
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <h3>Our list is below here</h3>
+      <ol id="list">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+      </ol>
+    </div>
+  </body>
+</html>

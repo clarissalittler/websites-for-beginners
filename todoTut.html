@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script>
+      window.onload = function () {
+         var inputElement = document.getElementById("input");
+         var todoList = document.getElementById("list");
+         var addButton = document.getElementById("add");
+  
+         addButton.addEventListener("click", function () {
+            var itemText = document.createTextNode(inputElement.value);
+            var newItem = document.createElement("li");
+            newItem.appendChild(itemText);
+            todoList.appendChild(newItem);
+            inputElement.value = "";
+         });
+       
+         inputElement.addEventListener("focus", function () {
+            inputElement.style.fontWeight = "bold";
+         });
+
+         inputElement.addEventListener("blur", function () {
+            inputElement.style.fontWeight = "normal";
+         });
+      };
+
+    </script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to your to-do list</h1>
+    <ol id="list">
+    </ol>
+    <input id="input" type="text"></input>
+    <button id="add">Add element</button>
+  </body>
+</html>

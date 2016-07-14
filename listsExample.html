@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.onload = function () {
+        var list = document.getElementById("list");
+        var items = list.getElementsByTagName("li");
+        for(var i=0; i < items.length; i = i+1) {
+           items[i].firstChild.nodeValue = "changed!";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <ol id="list">
+      <li> This </li>
+      <li> is </li>
+      <li> a </li>
+      <li> list </li>
+    </ol>
+  </body>
+</html>
