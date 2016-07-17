@@ -22,8 +22,9 @@
    + Give a taste for what web-programming is \pause
    + Explain the basic pieces
 ** This lecture and other resources
-   + This talk
+   + [[https://github.com/clarissalittler/websites-for-beginners/blob/master/WebProgramming.pdf][This talk]]
    + [[https://github.com/clarissalittler/websites-for-beginners/blob/master/WebProgTutorial.pdf][Tutorial]] for these lectures
+   + Intro to programming [[https://github.com/clarissalittler/multcolib-lectures/blob/master/BeginnerProgrammingReference.pdf][tutorial]]
 * What is a web site?
 ** Client and server
 *** 
@@ -65,7 +66,6 @@
    + =display=
    + =font-weight=
 ** Class
-
 #+BEGIN_SRC css :exports code
   .aclass {
       color: red;
@@ -177,46 +177,16 @@ file:console.png
 *** I have a friend, let's call her "Cassandra"...
 Variables function both as storage containers and pronouns
 ** Creating Variables
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-**** 
+*** 
 #+BEGIN_SRC js :exports code
-  var *name-of-variable* = *initial-value-in-it*;
-#+END_SRC
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-**** 
-#+BEGIN_SRC js :exports code
+  var nameOfVariable = initialValueInIt;
   var numberOfToes = 10;
 #+END_SRC
-**** 
-#+BEGIN_SRC js :exports code
-  var musicalIllNeverHaveTicketsTo = "Hamilton";
-#+END_SRC
 ** Assigning variables
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-**** 
+*** 
 #+BEGIN_SRC js :exports code
-  *name-of-variable* = *new-value*
-#+END_SRC
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-**** 
-#+BEGIN_SRC js :exports code
-  var musicalIllNeverHaveTicketsTo = "The Walking Dead: Live!";
-#+END_SRC
-**** 
-#+BEGIN_SRC js :exports code
-  var musicalIllNeverHaveTicketsTo = "Spider-Man: Turn Off the Dark";
+  var musicalsThatShouldExist = "The Walking Dead on Ice";
+  musicalsThatShouldExist = "Werner Herzog Sings The Blues";
 #+END_SRC
 ** Sequencing code
 #+BEGIN_SRC js :exports code
@@ -251,6 +221,14 @@ Variables function both as storage containers and pronouns
 #+END_SRC
 ** Multi-argument functions
 *** 
+#+BEGIN_SRC js :exports code
+  function moreFun (anArgument,anotherArgument) {
+      console.log(anArgument);
+      console.log(anotherArgument);
+  }
+
+  console.log(moreFun("one potato", "two potato"));
+#+END_SRC
 ** Objects
    + Phone books \pause
    + Contact lists \pause
@@ -295,8 +273,17 @@ Variables function both as storage containers and pronouns
   console.log(list[0]);
   console.cog(list.length);
 #+END_SRC
-** Iteration
 ** For
+   + Doing something multiple times \pause
+   + Walk five blocks \pause
+   + Cut three onions
+** For
+*** 
+#+BEGIN_SRC js :exports code
+  for(var i = 0; i < 10; i = i + 1){
+      console.log(i);
+  }
+#+END_SRC
 * The Document Object Model
 ** What is the Document Object Model?
 *** The DOM
@@ -325,9 +312,10 @@ Variables function both as storage containers and pronouns
          <script>
            window.onload = function () {
               var newHeadline = document.createElement("h1");
-	      var textNode = document.createTextNode("This is a headline!");
+              var textNode = document
+                .createTextNode("This is a headline!");
               newHeadline.appendChild(textNode);
-	      document.body.appendChild(newHeadline);
+              document.body.appendChild(newHeadline);
            };
          </script>
        </head>
@@ -355,14 +343,18 @@ Variables function both as storage containers and pronouns
 ** getElementById
 #+BEGIN_SRC js :exports code
   window.onload = function () {
-      var newItem = document.createElement("li");
-      var newText = document.createTextNode("item in the second list");
+      var newItem = 
+        document.createElement("li");
+      var newText =
+          document
+          .createTextNode("item in the second list");
       newItem.appendChild(newText);
       var secondList = document.getElementById("list2");
       secondList.appendChild(newItem);
   };
 #+END_SRC
 ** getElementsByTagName
+*** 
 #+BEGIN_SRC html :exports code
     <!doctype html>
     <html>
@@ -380,11 +372,12 @@ Variables function both as storage containers and pronouns
     </html>
 #+END_SRC
 ** getElementsByTagName
+*** 
 #+BEGIN_SRC js :exports code
   window.onload = function () {
       var lists = document.getElementsByTagName("ol");
     
-      for(var i = 0; i < lists.length; i++){
+      for(var i = 0; i < lists.length; i = i + 1){
           var list = lists[i];
           var newItem = document.createElement("li");
 	  var newText = document.createTextNode("new element");
@@ -414,8 +407,6 @@ Variables function both as storage containers and pronouns
 ** Changing the CSS class
 *** 
 #+BEGIN_SRC html :exports code
-  <!doctype html>
-  <html>
     <head>
       <style>
         .reddish {
@@ -429,28 +420,21 @@ Variables function both as storage containers and pronouns
         };
       </script>
     </head>
-    <body>
-      <h1 id="headline">This is a headline</h1>
-    </body>
-  </html>
 #+END_SRC
 ** Events
 *** Events 
 Events connect user interfaces to code
 ** Listening to events
+*** 
 #+BEGIN_SRC html :exports code :tangle firstEvents.html
-  <!doctype html>
-  <html>
     <head>
       <script>
         window.onload = function () {
 	   var h = document.getElementById("headline");
-	   
 	   h.addEventListener("mouseover", function () {
 	      this.style.color = "red";
 	   });
-
-	   h.addEventListener("mouseleave", function () {
+l	   h.addEventListener("mouseleave", function () {
 	      this.style.color = "black";
 	   });
         };
@@ -459,9 +443,9 @@ Events connect user interfaces to code
     <body>
       <h1 id="headline">This is our headline!</h1>
     </body>
-  </html>
 #+END_SRC
 ** Collapsing list
+*** 
 #+BEGIN_SRC html :exports code
     <body>
       <div id="content">
@@ -476,6 +460,7 @@ Events connect user interfaces to code
     </body>
 #+END_SRC
 ** Collapsing list
+*** 
 #+BEGIN_SRC js :exports code
   window.onload = function () {
       var list = document.getElementById("list");
@@ -489,6 +474,7 @@ Events connect user interfaces to code
   };
 #+END_SRC
 ** To-do list
+*** 
 #+BEGIN_SRC html :exports code
     <body>
       <h1>Welcome to your to-do list</h1>
@@ -499,29 +485,34 @@ Events connect user interfaces to code
     </body>
 #+END_SRC
 ** To-do list
+*** 
 #+BEGIN_SRC js :exports code
-        window.onload = function () {
-           var inputElement = document.getElementById("input");
-           var todoList = document.getElementById("list");
-           var addButton = document.getElementById("add");
+  var inputElement = document.getElementById("input");
+  var todoList = document.getElementById("list");
+  var addButton = document.getElementById("add");
     
-           addButton.addEventListener("click", function () {
-              var itemText = document.createTextNode(inputElement.value);
-              var newItem = document.createElement("li");
-              newItem.appendChild(itemText);
-              todoList.appendChild(newItem);
-              inputElement.value = "";
-           });
-         
-	   inputElement.addEventListener("focus", function () {
-	      inputElement.style.fontWeight = "bold";
-	   });
-
-	   inputElement.addEventListener("blur", function () {
-	      inputElement.style.fontWeight = "normal";
-	   });
-        };
+  addButton.addEventListener("click", function () {
+     var itemText = document.createTextNode(inputElement.value);
+     var newItem = document.createElement("li");
+     newItem.appendChild(itemText);
+     todoList.appendChild(newItem);
+     inputElement.value = "";
+  });
 #+END_SRC
+** To-do list
+*** 
+#+BEGIN_SRC js :exports code
+  inputElement.addEventListener("focus", function () {
+     inputElement.style.fontWeight = "bold";
+  });
+
+  inputElement.addEventListener("blur", function () {
+     inputElement.style.fontWeight = "normal";
+  });
+#+END_SRC 
 * Where to go?
 ** What's left
-   + More 
+   + A lot more JavaScript \pause
+   + Frameworks \pause
+   + Servers \pause
+   + Experimenting
