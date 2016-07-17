@@ -22,7 +22,8 @@
    + Give a taste for what web-programming is \pause
    + Explain the basic pieces
 ** This lecture and other resources
-   + 
+   + This talk
+   + [[https://github.com/clarissalittler/websites-for-beginners/blob/master/WebProgTutorial.pdf][Tutorial]] for these lectures
 * What is a web site?
 ** Client and server
 *** 
