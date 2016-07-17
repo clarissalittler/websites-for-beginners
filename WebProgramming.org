@@ -4,9 +4,14 @@
 #+startup: beamer
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
+#+LaTeX_HEADER: \usepackage{minted}
+
 
 * What is this class?
 ** What we'll be covering?
+   + A short review of HTML and CSS \pause
+   + A bare bones introduction to JavaScript \pause
+   + Examples of how to use JavaScript to alter web sites
 ** What we *won't* cover
    + All of JavaScript \pause
    + How to write a server \pause
@@ -16,6 +21,8 @@
    + Start you on the right track \pause
    + Give a taste for what web-programming is \pause
    + Explain the basic pieces
+** This lecture and other resources
+   + 
 * What is a web site?
 ** Client and server
 *** 
@@ -41,29 +48,93 @@
 *** 
     HyperText Markup Language (HTML) is a language that uses /nested tags/ to denote what elements a page has and what it should mean
 ** Common tags
-   + =<h1>= $\ldots$ =<h6>= \pause
-   + =<ol>=, =<ul>=, =<li>= \pause
-   + =<button>= \pause
-   + =<input>= \pause
-   + 
-** CSS
-** Selection methods
-** Common propeties
+*** Tags we'll need
+   + =<h1>= $\ldots$ =<h6>=
+   + =<ol>=, =<ul>=, =<li>=
+   + =<button>=
+   + =<input>=
+   + =<script>=
+   + =<style>=
+** What is CSS
+*** Cascading Style Sheets
+   CSS provides information on the look and layout of a site
+** CSS properties
+   + =color=
+   + =background-color=
+   + =display=
+   + =font-weight=
+** Class
+
+#+BEGIN_SRC css :exports code
+  .aclass {
+      color: red;
+      display: inline;
+  }
+#+END_SRC
+
+** Id
+#+BEGIN_SRC css :exports code
+  #mybutton {
+      font-weight: bold;
+  }
+#+END_SRC
+** Tag type
+#+BEGIN_SRC css :exports code
+  p {
+      font-weight: 900;
+  }
+#+END_SRC
 * What is programming?
-** Programming as instructions
-** Programming as language
+** Programming
+   Programming is 
 ** What are programming languages?
+*** A programming language is...
+    + a formal language with rules and grammar \pause
+    + that has meaning as computation \pause
+    + and can be used to talk to a computer
 * Basic JavaScript
 ** JavaScript in the browser
+*** 
+   JavaScript and browsers have a special relationship
 ** Script tag
+*** Direct code
+#+BEGIN_SRC html :exports code 
+  <!doctype html>
+
+  <html>
+    <head>
+      <script>
+        ...
+      </script>
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+#+END_SRC
+** Script tag
+*** Including code
+#+BEGIN_SRC html :exports code
+  <html>
+    <head>
+      <script src="..."></script>
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+#+END_SRC
 ** JavaScript console
+file:console.png
 ** What do we need to know?
    + Bare bones JavaScript \pause
    + Arithmetic \pause
    + Strings \pause
    + Variables \pause
    + Objects \pause
-   + Functions
+   + Arrays \pause
+   + Functions \pause
+   + Iteration
 ** Arithmetic
 *** 								      :BMCOL:
     :PROPERTIES:
@@ -84,13 +155,26 @@
      + =*=
      + $\ldots$
      
+** Strings
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+****     
+    Strings are text-as-data
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** 
+#+BEGIN_SRC js :exports code
+  "this is a string"
+  'this is also a string'
+  "even this 'is a string'"
+#+END_SRC
 ** Variables
-   + Need to /store/ data \pause
-   + Variables \pause
-   + The pronouns and nouns of programming \pause
-   + I have a friend who \pause
-** Variables as containers
-** Variables as pointers
+*** I have a friend, let's call her "Cassandra"...
+Variables function both as storage containers and pronouns
 ** Creating Variables
 *** 								      :BMCOL:
     :PROPERTIES:
@@ -133,41 +217,310 @@
 #+BEGIN_SRC js :exports code
   var musicalIllNeverHaveTicketsTo = "Spider-Man: Turn Off the Dark";
 #+END_SRC
+** Sequencing code
+#+BEGIN_SRC js :exports code
+  10 + 10;
+  20 + 20;
+  var these = "that";
+#+END_SRC
 ** Functions 
-** Functions as calculations
-** Functions as repeatable code
-** Calling functions
-** Making functions
-** Passing in data
+*** Functions in math
+#+BEGIN_LaTeX
+\begin{align*}
+  f(x) &= x + 10
+\end{align*}
+#+END_LaTeX
+** Functions
+*** Functions in JavaScript
+#+BEGIN_SRC js :exports code
+  function f(x) {
+      return x + 10;
+  }
+#+END_SRC
+** Using functions
+*** 
+#+BEGIN_CENTER
+  =console.log=
+#+END_CENTER
+*** 
+#+BEGIN_SRC js :exports code
+  console.log("chicken");
+  console.log("fish");
+  console.log(10 + 20);
+#+END_SRC
+** Multi-argument functions
+*** 
 ** Objects
-   + Objects collect data \pause
-   + Pairs of /properties/ and /values/
-   + ={ property1 : 0, property2 : 1}= \pause
-** Objects as storage
+   + Phone books \pause
+   + Contact lists \pause
+   + Mall directories \pause
+   + Dictionaries
+** Making Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {prop1 : 0, prop2 : 1};
+  var otherObject = {};
+#+END_SRC
+** Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {prop1 : 0, prop2 : 1, prop3 : "thing"};
+
+  console.log(obj);
+  console.log(obj.prop1);
+  console.log(obj.prop2);
+  console.log(obj.prop3);
+#+END_SRC
+** Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {};
+  console.log(obj.numberOfChickens);
+  obj.numberOfChickens = 2;
+  console.log(obj.numberOfChickens);
+#+END_SRC
+** Arrays
+   + to-do lists \pause
+   + book shelves \pause
+   + instructions
+** Arrays
+*** 
+#+BEGIN_SRC js :exports code
+  var list = [10,11,12];
+  console.log(list[0]);
+  console.log(list[1]);
+  console.log(list[2]);
+  list[0] = 20;
+  console.log(list[0]);
+  console.cog(list.length);
+#+END_SRC
+** Iteration
+** For
 * The Document Object Model
 ** What is the Document Object Model?
-   + In order to 
-** Why do we need it?
-** The DOM as a tree
-** Looking at the DOM in the console
-** Important DOM objects
+*** The DOM
+    The document object model (DOM) is the representation of the web page /as JavaScript objects/
+** Putting the document in DOM
+*** 
+=document= is the object that holds most of the important methods 
 * Programming the Document Object Model
 ** When to load code
+#+BEGIN_SRC js :exports code 
+    window.onload = function () {
+        ... 
+    };
+#+END_SRC
+** Creating elements in code
+   \pause
+   + =document.createElement= \pause
+   + =document.createTextNode= \pause
+   + =document.body= \pause
+   + =*element*.appendChild=
+** Creating elements
+   #+BEGIN_SRC html :exports code :tangle createElement.html
+     <!doctype html>
+     <html>
+       <head>
+         <script>
+           window.onload = function () {
+              var newHeadline = document.createElement("h1");
+	      var textNode = document.createTextNode("This is a headline!");
+              newHeadline.appendChild(textNode);
+	      document.body.appendChild(newHeadline);
+           };
+         </script>
+       </head>
+       <body>
+       </body>
+     </html>
+   #+END_SRC
 ** Finding elements
-** getElementByID
-** Changing the CSS class
+   \pause
+   + =document.getElementById= \pause
+   + =document.getElementsByTagName= \pause
+   + =*element*.firstChild= \pause
+   + =*node*.nodeValue=
+** getElementById
+#+BEGIN_SRC html :exports code
+    <body>
+      <ol id="list1">
+        <li>This is a list</li>
+      </ol>
+      <ol id="list2">
+        <li>This is our second list</li>
+      </ol>
+    </body>
+#+END_SRC
+** getElementById
+#+BEGIN_SRC js :exports code
+  window.onload = function () {
+      var newItem = document.createElement("li");
+      var newText = document.createTextNode("item in the second list");
+      newItem.appendChild(newText);
+      var secondList = document.getElementById("list2");
+      secondList.appendChild(newItem);
+  };
+#+END_SRC
+** getElementsByTagName
+#+BEGIN_SRC html :exports code
+    <!doctype html>
+    <html>
+      <head>
+        <script src="getElementsByTagName.js"></script>
+      </head>
+      <body>
+        <ol id="list1">
+          <li>This is a list</li>
+        </ol>
+        <ol id="list2">
+          <li>This is our second list</li>
+        </ol>
+      </body>
+    </html>
+#+END_SRC
+** getElementsByTagName
+#+BEGIN_SRC js :exports code
+  window.onload = function () {
+      var lists = document.getElementsByTagName("ol");
+    
+      for(var i = 0; i < lists.length; i++){
+          var list = lists[i];
+          var newItem = document.createElement("li");
+	  var newText = document.createTextNode("new element");
+          newItem.appendChild(newText);
+          list.appendChild(newItem);
+      }
+  };
+#+END_SRC
 ** Changing CSS properties
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <head>
+      <script>
+        window.onload = function () {
+	  var h = document.getElementById("headline");
+	  h.style.color = "red";
+        }
+      </script>
+    </head>
+    <body>
+      <h1 id="headline">This is a headline!</h1>
+    </body>
+  </html>
+#+END_SRC
+** Changing the CSS class
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <head>
+      <style>
+        .reddish {
+          color: red;
+        }
+      </style>
+      <script>
+        window.onload = function () {
+           var h = document.getElementById("headline");
+           h.classList.add("reddish");
+        };
+      </script>
+    </head>
+    <body>
+      <h1 id="headline">This is a headline</h1>
+    </body>
+  </html>
+#+END_SRC
 ** Events
-** Event loop
+*** Events 
+Events connect user interfaces to code
 ** Listening to events
-** Stopping events
-** Example: a button that changes the site
-** Example: collapsing menus
-** Getting data from forms
-** Example: a todo list
-* The server
-** Recap: the server's role
-** Communicating with the server
-** Node: an introduction
-** Synchronous vs. Asynchronous
-** 
+#+BEGIN_SRC html :exports code :tangle firstEvents.html
+  <!doctype html>
+  <html>
+    <head>
+      <script>
+        window.onload = function () {
+	   var h = document.getElementById("headline");
+	   
+	   h.addEventListener("mouseover", function () {
+	      this.style.color = "red";
+	   });
+
+	   h.addEventListener("mouseleave", function () {
+	      this.style.color = "black";
+	   });
+        };
+      </script>
+    </head>
+    <body>
+      <h1 id="headline">This is our headline!</h1>
+    </body>
+  </html>
+#+END_SRC
+** Collapsing list
+#+BEGIN_SRC html :exports code
+    <body>
+      <div id="content">
+        <h3>Our list is below here</h3>
+        <ol id="list">
+	  <li>First item</li>
+          <li>Second item</li>
+          <li>Third item</li>
+          <li>Fourth item</li>
+        </ol>
+      </div>
+    </body>
+#+END_SRC
+** Collapsing list
+#+BEGIN_SRC js :exports code
+  window.onload = function () {
+      var list = document.getElementById("list");
+      var div = document.getElementById("content");
+      div.addEventListener("mouseover", function () {
+          list.style.display = "block";
+      });
+      div.addEventListener("mouseleave", function () {
+          list.style.display = "none";
+      });
+  };
+#+END_SRC
+** To-do list
+#+BEGIN_SRC html :exports code
+    <body>
+      <h1>Welcome to your to-do list</h1>
+      <ol id="list">
+      </ol>
+      <input id="input" type="text"></input>
+      <button id="add">Add element</button>
+    </body>
+#+END_SRC
+** To-do list
+#+BEGIN_SRC js :exports code
+        window.onload = function () {
+           var inputElement = document.getElementById("input");
+           var todoList = document.getElementById("list");
+           var addButton = document.getElementById("add");
+    
+           addButton.addEventListener("click", function () {
+              var itemText = document.createTextNode(inputElement.value);
+              var newItem = document.createElement("li");
+              newItem.appendChild(itemText);
+              todoList.appendChild(newItem);
+              inputElement.value = "";
+           });
+         
+	   inputElement.addEventListener("focus", function () {
+	      inputElement.style.fontWeight = "bold";
+	   });
+
+	   inputElement.addEventListener("blur", function () {
+	      inputElement.style.fontWeight = "normal";
+	   });
+        };
+#+END_SRC
+* Where to go?
+** What's left
+   + More 
