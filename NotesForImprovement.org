@@ -1,0 +1,6 @@
+* Purpose of this document
+  This is a document for recording how to improve the two classes in this repository.
+* Web Programming for Beginners
+  + Include more of an explanation for what the console is and why you use =console.log=
+  + Switch around the explanation of javascript syntax so its interleaved with the DOM explanation
+  + Include more explicit resources in the final slides

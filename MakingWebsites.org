@@ -1,435 +1,628 @@
 #+TITLE: Making Websites for Beginners
 #+AUTHOR: Clarissa Littler
 #+OPTIONS: H:2 toc:nil
+#+LaTeX_HEADER: \usepackage{minted}
 #+startup: beamer
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
 
-* Project outline						   :noexport:
-** Requirements for a project 
-   First, what we need for a project is something that will show
-   + some CSS
-   + some HTML
-   + a very limited amount of JavaScript
-this kind of project should be something like a small site that has
-   + a menu that drops down and gives options
-   + has several columns, each of which is formatted differently
-   + uses semantic markup such as
-     + =strong=
-     + =em=
-     + =s=
-     + =small=
-     + =b=
-     + =i=
-   + includes both block and inline elements
-   + uses a number of divs and spans for marking up text
-** Project Idea
-*** Your biographic site
-    The idea here is that you make a small site that lays out your interests and your hobbies and your life story.
-    
-    As an example site, let's consider something like the following
-    #+BEGIN_SRC html :exports none :tangle MyselfMain.html
-      <!doctype html>
-      <html>
-        <head>
-          <style>
-            .col {
-              width: 33%;
-              border: 3px solid black;
-              float: left;
-            }
-            html {
-              min-height: 100%;
-              position: relative;
-            }
-            .keyword {
-              color: crimson;
-            }
-          </style>
-          <script>
-            function toggleContent(id){
-              var el = document.getElementById(id);
-              if (el.style.display === "none"){
-           
-              }
-            }
-      
-            window.onload = function () {
-        
-            }
-          </script>
-        </head>
-        <body>
-          <header>
-            <h1>My Own Domain</h1>
-            <p>by Ms. Littler</p>
-          </header>
-
-          <nav>
-            <ul>
-              <li style="display: inline;", id="hobbieslink">Hobbies</li>
-              <li style="display: inline;", id="biolink">Biography</li>
-              <li style="display: inline;", id="worlddomination">Plans for World Domination</li>
-            </ul>
-          </nav>
-
-          <div class="col">
-            <h2>My hobbies</h2>
-            <div id="hobbies">
-              <ol>
-                <li> Wearing ill-fitting hats </li>
-                <li> Holding chickens </li>
-                <li> Whispering voicelessly into the night, hoping something wicked answers. </li>
-              </ol>
-            </div>
-          </div>
-    
-          <div class="col">
-            <h2>About me</h2>
-            <div >
-            <p>
-            A total nerd who smells like wet dog.
-            </p>
-            <p>
-            Like. <span class="keyword">Always</span>.
-            </p>
-            <p>
-              <small>it's all very strange</small>
-            </p>
-            </div>
-          </div>
-    
-          <div class="col">
-            <h4>And here we have a touch of JavaScript</h4>
-            <ul id="collapse">
-              <li> Here is a collapseable list </li>
-              <li> That has a number of elements </li>
-              <li> Which should appear when we mouse over </li>
-              <li> And disappear when we mouse away </li>
-            </ul>
-          </div>
-        </body>
-      </html>
-    #+END_SRC
-
 * What is this class?
 ** What we'll cover
-   + The basic technology that goes into a webpage/site
+   + The basic technology that goes into a webpage \pause
+   + What the biggest 
 ** What we won't cover
    + How to build the back-end of a site \pause
    + How to program in JavaScript in general \pause
      + Though there are free supplements for that \pause
    + A majority of CSS and HTML
-** Class mechanics
-   + Two hours \pause
-   + Project based \pause
-     + I'll show.. \pause
-     + and you follow
-** What will we build?
-   (Show off the website we're building)
 * What is a website?
-** Client vs. server
-** How your browser loads a site
-   + Find the server \pause
-   + Request the page \pause
-   + Receive the page \pause
-   + Render the page
-** Finding the server: DNS
-** Talking to the server: HTTP
-** Rendering the webpage
+** Client and server
+*** 
+   Two pieces that talk to each other to make a site
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Server
+     + Sends data to the browser
+     + Saves information for long term use
+     + Receives requests from the client
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Client
+     + Receives data from the server
+     + Renders server data into a usable page
+     + Handles the user interface
 ** The three pieces of a web page
    + HTML \pause
    + CSS \pause
    + JavaScript
 ** HTML
-  + The /content/ of the page \pause
-    + Text \pause
-    + Images \pause
-    + Links \pause
-    + Lists \pause
-    + ... \pause
-  + But not how it looks /per se/
+*** What does HTML do?
+    HTML describes the content of the page, but not how it looks
 ** CSS
-   + The /look/ of the page \pause
-     + Text color \pause
-     + Background color \pause
-     + Size \pause
-     + Font \pause
-     + ... \pause
-   + But not what's /on/ the page
+*** What does CSS do?
+    CSS describes how a page looks, but not its content
 ** JavaScript
-   + The /dynamics/ of the page \pause
-     + What happens when you click \pause
-     + What happens when you move your mouse \pause
-     + What happens when you type \pause
-     + ... \pause
-   + Modifies both HTML and CSS as you use the site
+*** What does JavaScript do?
+    The dynamics and the user interface of the page
 * Basic HTML
-** Our base page
-** What *is* hypertext?
+** What *is* HTML
+*** HyperText Markup Language
+    + HyperText \pause
+    + Markup
 ** Tags and Elements
-** Attributes
+*** 
+#+BEGIN_SRC html :exports code
+  <body>
+    <h1>This is a headline</h1>
+    <p>This is a paragraph of text, 
+        where some of the text is <b>bold</b>, and
+        after this paragraph, there will be a numbered list
+    </p>
+
+    <ol>
+      <li>lists are made of "list items"</li>
+      <li>like these</li>
+    </ol>
+  </body>
+#+END_SRC
+** Whence closing tags
+*** Without closing tags
+#+BEGIN_SRC html :exports code
+  <body>
+    <ol>
+      <li>This is a list
+      <li>but
+      <li> there's ambiguity here
+    <ol>
+      <li> where does this part go?
+      <li> is it a sublist or a second list?
+      
+#+END_SRC
+** Whence closing tags
+*** With closing tags
+#+BEGIN_SRC html :exports code 
+  <body>
+    <ol>
+      <li>This is a list</li>
+      <li>but</li>
+      <li> there's ambiguity here</li>
+    </ol>
+    <ol>
+      <li> where does this part go?</li>
+      <li> is it a sublist or a second list?</li>
+    </ol>
+  </body>
+#+END_SRC
 ** The basic template
 *** 
 #+BEGIN_SRC html :exports code
   <!doctype html>
   <html>
+    <head>
+      ...
+    </head>
     <body>
       ...
     </body>
   </html>
 #+END_SRC
-** External Links
-** Internal Links
-** Ordered lists
-*** Ordered lists in HTML 					      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-   + ordered lists \pause
-   + lists that start with /numbers/ \pause   
-
-#+BEGIN_SRC html :exports none :tangle olistExample.html
+** Semantic markup
+*** Markup is about meaning
+    Tags should be used with intended /meaning/ in mind
+** Semantic markup
+*** 
+#+BEGIN_SRC html :exports code
   <!doctype html>
 
   <html>
     <body>
+      Here we have 
+      <b>some bold text</b> 
+      and some 
+      <strong>strong text</strong>. 
+      They look identical by default.
+    </body>
+  </html>
+#+END_SRC
+** Semantic markup
+*** 
+#+ATTR_LATEX: :width 5cm
+file:strongB.png
+** Semantic markup
+   + =<strong>= vs. =<b>= \pause
+   + =<em>= vs. =<i>= \pause
+   + =<article>= \pause
+   + =<section>=
+** Headlines
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** 
+#+BEGIN_SRC html :exports code 
+  <!doctype html>
+  <html>
+    <body>
+      <h1>Big headline</h1>
+      <h2>Smaller</h2>
+      <h3>Smaller</h3>
+      <h4>Even smaller</h4>
+      <h5>Smallller</h5>
+      <h6>Smallest</h6>
+    </body>
+  </html>
+#+END_SRC
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** 
+file:headlines.png
+** Lists
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <body>
       <ol>
-        <li>These</li>
-        <li>Are</li>
-        <li>Items</li>
-        <li>In</li>
-        <li>A</li>
-        <li>List</li>
+        <li>This is an ordered list</li>
+        <li>And here we have a nested list
+          <ul>
+            <li>and this is an unordered list</li>
+            <li>which is by default</li>
+            <li>a bulleted list</li>
+          </ul>
+        </li>
       </ol>
     </body>
   </html>
 #+END_SRC
-*** What it looks like						      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-**** 
-     Insert image of the example 
-** Unordered lists
-*** Unordered lists in HTML					      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-    + Unnumbered lists \pause
-    + Bullet points by default \pause
-    + Called "unordered" \pause
-    + Still *appears* in order
-#+BEGIN_SRC html :exports none :tangle ulistExample.html
-  <!doctype html>
-  <html>
-    <body>
-      <ul>
-        <li>These</li>
-        <li>Are</li>
-        <li>Unordered</li>
-        <li>List</li>
-        <li>Items</li>
-      </ul>
-    </body>
-  </html>
-#+END_SRC
-*** What it looks like						      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-**** 
-     Insert image of the example
-** Paragraphs
-   + Paragraphs in HTML are paragraphs of text \pause
-   + 
-** Headings
-   + Large text denoting sections and title \pause
-   + =<h1>= through =<h5>= \pause
-   + The bigger the number the smaller
-** Heading Example
-*** Headings in HTML
-    #+BEGIN_SRC html :exports code :tangle headingsExample.html
-      <!doctype html>
-      <html>
-        <body>
-          <h1>A big heading</h1>
-          <h2>A slightly smaller heading</h2>
-          <h3>Even smaller</h3>
-          <h4>Smaller</h4>
-          <h5>Pretty darn small</h5>
-        </body>
-      <html>
-    #+END_SRC
-*** How they look
-    (insert image)
-** Table
-** Table Examples
-** Semantic Markup
-   + HTML is about meaning \pause
-   + HTML 
-** Marking up text
-*** Ways to format text						      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-*** How it looks						      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-** Article
-** Section
-** Header
+** Lists
+*** 
+#+ATTR_LATEX: :width 5cm
+file:listylists.png
+** Anchors and Attributes
+*** 
+~<a href="https://multcolib.org">This is a link</a>~
 ** Inline and Block Elements
-** Div
-   + =<div>= tag \pause
-   + Logically groups content together \pause
-   + Doesn't change appearance \pause
-   + Wrap any example in a =<div>= and it's unchanged \pause
-   + A /handle/ for code and CSS to change content
-** Span
-   + =<span>= tag \pause
-   + Like =<div>= but for in-line elements \pause
-** Elements we haven't discussed 
-* Project Time I
-** What the pages will look like
-** How we'll do it
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Inline
+Elements that don't take up space beyond their text
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Block
+Elements that take up room beyond their text
+** Div and span
+*** Semantic markup
+  Div and span are used to group related elements together
 * CSS
-** Our page with CSS
 ** Cascading Style Sheets
-   + How do we change font? \pause
-   + How do we add background color? \pause
-   + 
+*** What is CSS?
+    Cascading style sheets control the appearance of elements
+** CSS Entries
+*** 
+#+BEGIN_SRC css :exports code
+  selector {
+      property: value;
+      property: value;
+      property: value;
+  }
+#+END_SRC
 ** Adding CSS to a page
-** Common attributes
-   + =color= \pause
-   + =background-color= \pause
-   + =height= \pause
-   + =width= \pause
-   + =display= \pause
-   + ...
-** Choosing elements by ID
-   #+BEGIN_SRC css :exports code
-     #thing1 {
-         color: crimson;
-         height: 100px;
-     }
-   #+END_SRC
-** Example: styling your concluding paragraph
-*** HTML and CSS						      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-#+BEGIN_SRC html :exports code :tangle idSelectionExample.html
-  <!doctype html>
+*** Style tags
+#+BEGIN_SRC html :exports code
+  <!doctyle html>
   <html>
     <head>
       <style>
-        #ending {
-          font-weight: bold;
-          color: darkgreen;
-        }
-      </style>
-    </head>
-    <body>
-      <article>
-        <p>
-          Here's some text and some things that we want to express.
-        </p>
         ...
-        <p id="ending">
-          And this our final triumphant paragraph. All the text in it should be boldy, triumphantly green.
-        </p>
-      </article>
+      </style>
+    </head>
+    <body>
+      ...
     </body>
   </html>
 #+END_SRC
-*** What it looks like						      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-(insert image)
-** Choosing elements by class
-   #+BEGIN_SRC css :exports code
-     .thisClass {
-         font-style: oblique;
-     }
-   #+END_SRC
-** Example: styling like a screenplay
-#+BEGIN_SRC html :exports code :tangle screenplayExample.html
+** Selecting elements by ID
+*** 
+#+BEGIN_SRC html :exports code
   <!doctype html>
+
   <html>
     <head>
       <style>
-        .character1 {
-          color: crimson;
-	  text-align: left;
-        }
-        .character2 {
-          color: darkgreen;
-	  text-align: right;
-        }
-        .description {
-          font-weight: bold;
-          text-align: center;
-        }
-        .script {
-          width: 700px;
+        #para {
+          color: blue;
         }
       </style>
     </head>
     <body>
-      <div class="script">
-        <p class="description">
-          Our scene begins with two chickens, discussing existence.
-        </p>
-        <p class="character1">
-          Chicken 1: Who am I and why do I want to cross the road?
-        </p>
-        <p class="character2">
-          Chicken 2: Verily, you want to cross the road to get to the other side.
-        </p>
-        <p class="description">
-          Thus ends our reinterpretation of Waiting for Godot
-        </p>
-      </div>
+      <p id="para">This is the text within our paragraph.</p>
     </body>
   </html>
 #+END_SRC
-** Choosing elements by type
-** Example: styling block quotes
-** Combining all of them
-** Putting the cascade in CSS
-** Styling Divs and Spans
-   + =<div>= and =<span>= are logical groupings \pause
-   + These groups can be used to style content \pause
-   + 
-** Div
-** Example: columns with divs
-** Span
-** Example: styling text with spans
-* Project Time II
-** What the pages will look like
-** How we'll do it
+** Selecting elements by ID 
+*** 
+#+ATTR_LATEX: :width 5cm
+file:byId.png
+
+** Selecting elements by class
+*** 
+#+BEGIN_SRC css :exports code
+  .ourClass {
+      color: red;
+      width: 200px;
+      font-weight: bold;
+  }
+#+END_SRC
+** Selecting elements by class
+*** 
+#+BEGIN_SRC html :exports code
+  <p class="ourClass">Here's the 
+  text in one paragraph. 
+  There's going to be a fair 
+  decent length of text here so we 
+  can see that the width 
+  restriction causes the text to wrap around.</p>
+
+  <ol class="ourClass">
+    <li>Here's a list here that's 
+    also going to have an item 
+    with at least a moderately long 
+    single element 
+    in order to show the 
+    effects of the width property</li>
+  </ol>
+#+END_SRC
+** Selecting elements by class
+*** 
+#+ATTR_LATEX: :width 5cm
+file:byClass.png
+** Selecting elements by type
+*** 
+#+BEGIN_SRC css :exports code
+  p {
+      font-size: large;
+      background-color: green;
+      color: blue;
+      width: 200px;
+  }
+#+END_SRC
+** Selecting elements by type
+*** 
+#+BEGIN_SRC html :exports code
+  <p>Our first paragraph is here. 
+    There's some text and things of that ilk.</p>
+  <p>This is our second paragraph, 
+    beholden to no one but itself. 
+    A wild rebel of a paragraph</p>
+  <p>Our third paragraph lies here, 
+    relentless in its comformity. 
+    There's not much to say about ol' thirdy, 
+    they're simply stoic and 
+    resolute in their paragraphness.</p>
+#+END_SRC
+** Selecting elements by type
+*** 
+#+ATTR_LATEX: :width 5cm
+file:byType.png
+** Specificity
+*** 
+#+BEGIN_SRC css :exports code
+  p {
+      font-size: large;
+      background-color: green;
+      color: blue;
+      width: 200px;
+  }
+  p.rebel {
+      width: 300px;
+      background-color: white;
+  }
+#+END_SRC
+** Specificity
+*** 
+#+BEGIN_SRC html
+  <h1 class="rebel">This time we also have a rebellious headline, 
+  which should be unchanged</h1>
+  
+  <p>Our first paragraph is here.
+    There's some text and things of that ilk.</p>
+  <p class="rebel">This is our second paragraph, 
+    beholden to no one but itself. 
+    A wild rebel of a paragraph</p>
+  <p>Our third paragraph lies here,
+    relentless in its comformity. 
+    There's not much to say about ol' thirdy, 
+    they're simply stoic and resolute
+    in their paragraphness.</p>
+  </div>
+#+END_SRC
+** Specificity
+*** 
+#+ATTR_LATEX: :width 11cm
+file:specific.png
+** Another example with divs
+*** 
+#+BEGIN_SRC css :exports code
+  .character1 {
+    color: crimson;
+    text-align: left;
+  }
+  .character2 {
+    color: darkgreen;
+    text-align: right;
+  }
+  .description {
+    font-weight: bold;
+    text-align: center;
+  }
+  .script {
+    width: 700px;
+  }
+#+END_SRC
+** Another example with divs
+*** 
+#+BEGIN_SRC html :exports code
+    <div class="script">
+      <p class="description">
+        Our scene begins with two chickens, 
+	discussing existence.
+      </p>
+      <p class="character1">
+        Chicken 1: Who am I and why do I want to cross the road?
+      </p>
+      <p class="character2">
+        Chicken 2: Verily, you want to cross the road 
+	to get to the other side.
+      </p>
+      <p class="description">
+        Thus ends our reinterpretation of Waiting for Godot
+      </p>
+    </div>
+#+END_SRC
+** Another example with divs
+*** 
+#+ATTR_LATEX: :width 11cm
+file:screenplay.png
 * JavaScript
-** Our page with JavaScript
 ** What is JavaScript?
-   + A general purpose programming language \pause
-   + Programming languages express computation \pause
-   + 
-** Why JavaScript?
-** A smidgen of JavaScript: I
-** A smidgen of JavaScript: II
-** The Document Object Model (DOM)
-   + Document Object Model (DOM) \pause
-   + HTML $\Longleftrightarrow$ JavaScript \pause
-   +  
-** Events
-** Finding elements with code
-** Example: Hiding and showing text
-* Project Time III
-** What the pages will look like
-** How we'll do it
+*** 
+JavaScript is a programming language that runs in the browser and provides the dynamics, the interaction in any web site
+** Programming is speaking a language
+   + All language is communication \pause
+   + Programming languages are special languages \pause
+   + Computers need precision \pause they're not as smart as us
+** Why programming is hard
+*** 
+    The precision of instructions computers need is unnatural for the human mind
+** Why programming is hard
+*** 
+#+ATTR_LATEX: :width 5cm
+[[file:ikea-instructions.jpg][file:~/projects/games-with-js/ikea-instructions.jpg]]
+** Why programming is hard
+*** 
+#+ATTR_LATEX: :width 5cm
+[[file:EmpireStateSection.gif][file:~/projects/games-with-js/EmpireStateSection.png]]
+** Why programming is learnable
+   + Precise thinking may be unnatural \pause
+   + But it's not impossible \pause
+   + It takes time \pause and practice \pause
+   + Like learning any language
+** The JavaScript console
+   + Every browser can run JavaScript \pause
+   + The =console= allows you to test code
+** The JavaScript console
+*** 
+#+LaTeX: {\Huge
+Let's try it!
+#+LaTeX: }
+
+** Syntax
+   + Syntax is the grammar of a language \pause
+   + Even stricter rules than human languages \pause
+   + "Dog not can to ridebike nor can to cook" \pause
+   + Computers can't guess
+** Evaluation of code
+   + Syntax doesn't *do* anything \pause
+   + Saying "I have a trillion dollars" doesn't make it so \pause
+   + An /interpreter/ runs (or /evaluates/) code
+** Arithmetic
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Numbers
+     + 1
+     + 0.5
+     + -20
+     + $\ldots$
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+**** Operations
+     + =+=
+     + =-=
+     + =*=
+     + $\ldots$
+** Sequences
+   + Need to do more than a single step of code at a time \pause
+   + List the steps line by line \pause separate by semicolons
+** Variables
+*** I have a friend, let's call her "Cassandra"...
+Variables function both as storage containers and pronouns
+** Creating Variables
+*** 
+#+BEGIN_SRC js :exports code
+  var nameOfVariable = initialValueInIt;
+  var numberOfToes = 10;
+#+END_SRC
+** Assigning variables
+*** 
+#+BEGIN_SRC js :exports code
+  var musicalsThatShouldExist = "The Walking Dead on Ice";
+  musicalsThatShouldExist = "Werner Herzog Sings The Blues";
+#+END_SRC
+** Functions 
+*** Functions in math
+#+BEGIN_LaTeX
+\begin{align*}
+  f(x) &= x + 10
+\end{align*}
+#+END_LaTeX
+** Functions
+*** Functions in JavaScript
+#+BEGIN_SRC js :exports code
+  function f(x) {
+      return x + 10;
+  }
+#+END_SRC
+** Using functions
+*** 
+First example of a function, a function that writes data to the console
+*** 
+#+BEGIN_CENTER
+  =console.log=
+#+END_CENTER
+** Multi-argument functions
+*** 
+#+BEGIN_SRC js :exports code
+  function moreFun (anArgument,anotherArgument) {
+      console.log(anArgument + anotherArgument);
+  }
+
+  moreFun(10, 20);
+#+END_SRC
+** Functions with no arguments
+*** 
+#+BEGIN_SRC js :exports code
+  function noArgs () {
+      return 10;
+  }
+#+END_SRC
+
+** Objects
+   + Phone books \pause
+   + Contact lists \pause
+   + Mall directories \pause
+   + Dictionaries
+** Making Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {prop1 : 0, prop2 : 1};
+  var otherObject = {};
+#+END_SRC
+** Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {prop1 : 0, prop2 : 1, prop3 : "thing"};
+#+END_SRC
+** Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {};
+  obj.numberOfChickens = 2;
+#+END_SRC
+* The Document Object Model
+** What is the Document Object Model?
+*** The DOM
+    The document object model (DOM) is the representation of the web page /as JavaScript objects/
+** Putting the document in DOM
+*** 
+=document= is the object that holds most of the important methods 
+
+* Programming the Document Object Model
+** When to load code
+#+BEGIN_SRC js :exports code 
+    window.onload = function () {
+        ... 
+    };
+#+END_SRC
+** Creating elements in code
+   \pause
+   + =document.createElement= \pause
+   + =document.createTextNode= \pause
+   + =document.body= \pause
+   + =*element*.appendChild=
+** Creating elements
+   #+BEGIN_SRC html :exports code :tangle createElement.html
+     <!doctype html>
+     <html>
+       <head>
+         <script>
+           window.onload = function () {
+              var newHeadline = document.createElement("h1");
+              var textNode = document
+                .createTextNode("This is a headline!");
+              newHeadline.appendChild(textNode);
+              document.body.appendChild(newHeadline);
+           };
+         </script>
+       </head>
+       <body>
+       </body>
+     </html>
+   #+END_SRC
+** Finding elements
+   \pause
+   + =document.getElementById= \pause
+   + =document.getElementsByTagName= \pause
+   + =*element*.firstChild= \pause
+   + =*node*.nodeValue=
+** getElementById
+#+BEGIN_SRC html :exports code
+    <body>
+      <ol id="list1">
+        <li>This is a list</li>
+      </ol>
+      <ol id="list2">
+        <li>This is our second list</li>
+      </ol>
+    </body>
+#+END_SRC
+** getElementById
+#+BEGIN_SRC js :exports code
+  window.onload = function () {
+      var newItem = 
+        document.createElement("li");
+      var newText =
+          document
+          .createTextNode("item in the second list");
+      newItem.appendChild(newText);
+      var secondList = document.getElementById("list2");
+      secondList.appendChild(newItem);
+  };
+#+END_SRC
+
+** Changing CSS properties
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <head>
+      <script>
+        window.onload = function () {
+	  var h = document.getElementById("headline");
+	  h.style.color = "red";
+        }
+      </script>
+    </head>
+    <body>
+      <h1 id="headline">This is a headline!</h1>
+    </body>
+  </html>
+#+END_SRC
+
 * Wrapup
 ** What we've learned
    + What a webpage is \pause
@@ -458,4 +651,8 @@ this kind of project should be something like a small site that has
    + Frameworks for styling \pause
      + Bootstrap is a very popular one \pause
    + JavaScript programming
-** Questions?
+** Thanks for attending!
+*** 
+#+LaTeX: {\Huge
+Thanks for being in this class
+#+LaTeX: }
