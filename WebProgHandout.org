@@ -1,0 +1,22 @@
+#+TITLE: Handout for Web Programming
+#+OPTIONS: toc:nil
+#+LaTeX_HEADER: \usepackage[margin=1in]{geometry}
+#+LaTeX_HEADER: \usepackage{framed}
+#+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \setlength{\parskip}{2mm}
+
+* Getting started
+  Welcome to the class!
+
+  The first step is to download the slides so you can follow along with the lectures: http://bit.ly/2aa5QJw
+
+    Then, navigate to https://github.com/clarissalittler/websites-for-beginners and click on the "download" button and then the "download zip" option. Alternately, just use following link to download the zip directly https://github.com/clarissalittler/websites-for-beginners/archive/master.zip (or http://bit.ly/2anatmW)
+
+#+LaTeX: \begin{framed}
+  By default, the zip file will be downloaded into your =Downloads= directory. Navigate to your downloads directory then /right/ click on the file =websites-for-beginners-master.zip= and select the option "extract here". Then navigate into the directory and you will find yourself in the right directory for this course.
+#+LaTeX: \end{framed}
+
+* Links to resources
+  + General JavaScript notes: http://bit.ly/2ahKOZc
+  + Tutorial on HTML and CSS: http://bit.ly/2af3ifd
+  + Tutorial on JavaScript and the Document Object Model: http://bit.ly/2abXKFa
