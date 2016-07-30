@@ -4,12 +4,13 @@
     <script>
       window.onload = function () {
          var newHeadline = document.createElement("h1");
-         newHeadline.appendChild(document.createTextNode("This is a headline!"));
+         var textNode = document
+           .createTextNode("This is a headline!");
+         newHeadline.appendChild(textNode);
          document.body.appendChild(newHeadline);
       };
     </script>
   </head>
   <body>
-
   </body>
 </html>

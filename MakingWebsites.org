@@ -9,7 +9,8 @@
 * What is this class?
 ** What we'll cover
    + The basic technology that goes into a webpage \pause
-   + What the biggest 
+   + Simple examples of how to use HTML, CSS, and JavaScript \pause
+   + Resources to continue your learning
 ** What we won't cover
    + How to build the back-end of a site \pause
    + How to program in JavaScript in general \pause
@@ -137,6 +138,20 @@ file:strongB.png
    + =<em>= vs. =<i>= \pause
    + =<article>= \pause
    + =<section>=
+** Exercise 1
+*** 
+#+LaTeX: {\Large {\scshape
+Make your own page following the template below: use at least two of the following tags =<ol>=, =<ul>=, =<h1>=, =<p>=, =<b>=, and =<i>=
+#+LaTeX: }}
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <body>
+      your code here
+    </body>
+  </html>
+#+END_SRC
 ** Headlines
 *** 								      :BMCOL:
     :PROPERTIES:
@@ -188,6 +203,11 @@ file:listylists.png
 ** Anchors and Attributes
 *** 
 ~<a href="https://multcolib.org">This is a link</a>~
+** Exercise 2
+*** 
+#+LaTeX: {\Large {\scshape
+Create your own page that uses at least two links and test them to ensure they work
+#+LaTeX: }}
 ** Inline and Block Elements
 *** 								      :BMCOL:
     :PROPERTIES:
@@ -264,6 +284,22 @@ file:byId.png
       font-weight: bold;
   }
 #+END_SRC
+** Exercise 3
+*** 
+#+LaTeX: {\Large
+Open the file =exer3.html= and then add in CSS declarations to make both paragraphs have =width: 200px= and the first paragraph have a color of =blue=
+#+LaTeX: }
+#+BEGIN_SRC html :exports none :tangle exer3.html
+  <!doctype html>
+  <html>
+    <head>
+    </head>
+    <body>
+      <p class="theClass" id="firstPara">This is a paragraph that has some text in it and, y'know, stuff and things</p>
+      <p class="theClass" id="sndPara">This is the second paragraph by gum</p>
+    </body>
+  </html>
+#+END_SRC
 ** Selecting elements by class
 *** 
 #+BEGIN_SRC html :exports code
@@ -315,7 +351,7 @@ file:byClass.png
 *** 
 #+ATTR_LATEX: :width 5cm
 file:byType.png
-** Specificity
+** Specificity							   :noexport:
 *** 
 #+BEGIN_SRC css :exports code
   p {
@@ -329,7 +365,7 @@ file:byType.png
       background-color: white;
   }
 #+END_SRC
-** Specificity
+** Specificity							   :noexport:
 *** 
 #+BEGIN_SRC html
   <h1 class="rebel">This time we also have a rebellious headline, 
@@ -347,7 +383,7 @@ file:byType.png
     in their paragraphness.</p>
   </div>
 #+END_SRC
-** Specificity
+** Specificity							   :noexport:
 *** 
 #+ATTR_LATEX: :width 11cm
 file:specific.png
@@ -555,7 +591,7 @@ First example of a function, a function that writes data to the console
    + =document.body= \pause
    + =*element*.appendChild=
 ** Creating elements
-   #+BEGIN_SRC html :exports code :tangle createElement.html
+   #+BEGIN_SRC html :exports code
      <!doctype html>
      <html>
        <head>
