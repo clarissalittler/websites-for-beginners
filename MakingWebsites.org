@@ -284,22 +284,6 @@ file:byId.png
       font-weight: bold;
   }
 #+END_SRC
-** Exercise 3
-*** 
-#+LaTeX: {\Large
-Open the file =exer3.html= and then add in CSS declarations to make both paragraphs have =width: 200px= and the first paragraph have a color of =blue=
-#+LaTeX: }
-#+BEGIN_SRC html :exports none :tangle exer3.html
-  <!doctype html>
-  <html>
-    <head>
-    </head>
-    <body>
-      <p class="theClass" id="firstPara">This is a paragraph that has some text in it and, y'know, stuff and things</p>
-      <p class="theClass" id="sndPara">This is the second paragraph by gum</p>
-    </body>
-  </html>
-#+END_SRC
 ** Selecting elements by class
 *** 
 #+BEGIN_SRC html :exports code
@@ -323,6 +307,22 @@ Open the file =exer3.html= and then add in CSS declarations to make both paragra
 *** 
 #+ATTR_LATEX: :width 5cm
 file:byClass.png
+** Exercise 3
+*** 
+#+LaTeX: {\Large
+Open the file =exer3.html= and then add in CSS declarations to make both paragraphs have =width: 200px= and the first paragraph have a color of =blue=
+#+LaTeX: }
+#+BEGIN_SRC html :exports none :tangle exer3.html
+  <!doctype html>
+  <html>
+    <head>
+    </head>
+    <body>
+      <p class="theClass" id="firstPara">This is a paragraph that has some text in it and, y'know, stuff and things</p>
+      <p class="theClass" id="sndPara">This is the second paragraph by gum</p>
+    </body>
+  </html>
+#+END_SRC
 ** Selecting elements by type
 *** 
 #+BEGIN_SRC css :exports code
@@ -462,7 +462,6 @@ JavaScript is a programming language that runs in the browser and provides the d
 #+LaTeX: {\Huge
 Let's try it!
 #+LaTeX: }
-
 ** Syntax
    + Syntax is the grammar of a language \pause
    + Even stricter rules than human languages \pause
@@ -509,6 +508,32 @@ Variables function both as storage containers and pronouns
   var musicalsThatShouldExist = "The Walking Dead on Ice";
   musicalsThatShouldExist = "Werner Herzog Sings The Blues";
 #+END_SRC
+** Objects
+   + Phone books \pause
+   + Contact lists \pause
+   + Mall directories \pause
+   + Dictionaries
+** Making Objects
+*** 
+#+BEGIN_SRC js :exports code
+  var obj = {prop1 : 0, prop2 : 1};
+  var otherObject = {};
+#+END_SRC
+** Objects
+*** Type the following in your console
+#+BEGIN_SRC js :exports code
+  var obj = {prop1 : 0, prop2 : 1, prop3 : "thing"};
+  obj.prop1;
+  obj.prop2;
+  obj.prop3;
+#+END_SRC
+** Objects
+*** Type the following in your console
+#+BEGIN_SRC js :exports code
+  var obj = {};
+  obj.numberOfChickens = 2;
+  obj.numberOfChickens;
+#+END_SRC
 ** Functions 
 *** Functions in math
 #+BEGIN_LaTeX
@@ -530,6 +555,25 @@ First example of a function, a function that writes data to the console
 #+BEGIN_CENTER
   =console.log=
 #+END_CENTER
+** Example
+*** 
+Navigate to the file =consoleExample.html= and then check the console to see what happened
+** Example
+*** 
+#+BEGIN_SRC html :exports code :tangle consoleExample.html
+  <!doctype html>
+  <html>
+    <head>
+      <script>
+        console.log("we're printing one message");
+        console.log("and another message!");
+      </script>
+    </head>
+    <body>
+      Check your console!
+    </body>
+  </html>
+#+END_SRC
 ** Multi-argument functions
 *** 
 #+BEGIN_SRC js :exports code
@@ -546,29 +590,6 @@ First example of a function, a function that writes data to the console
       return 10;
   }
 #+END_SRC
-
-** Objects
-   + Phone books \pause
-   + Contact lists \pause
-   + Mall directories \pause
-   + Dictionaries
-** Making Objects
-*** 
-#+BEGIN_SRC js :exports code
-  var obj = {prop1 : 0, prop2 : 1};
-  var otherObject = {};
-#+END_SRC
-** Objects
-*** 
-#+BEGIN_SRC js :exports code
-  var obj = {prop1 : 0, prop2 : 1, prop3 : "thing"};
-#+END_SRC
-** Objects
-*** 
-#+BEGIN_SRC js :exports code
-  var obj = {};
-  obj.numberOfChickens = 2;
-#+END_SRC
 * The Document Object Model
 ** What is the Document Object Model?
 *** The DOM
@@ -576,7 +597,6 @@ First example of a function, a function that writes data to the console
 ** Putting the document in DOM
 *** 
 =document= is the object that holds most of the important methods 
-
 * Programming the Document Object Model
 ** When to load code
 #+BEGIN_SRC js :exports code 
@@ -589,7 +609,7 @@ First example of a function, a function that writes data to the console
    + =document.createElement= \pause
    + =document.createTextNode= \pause
    + =document.body= \pause
-   + =*element*.appendChild=
+   + =.appendChild=
 ** Creating elements
    #+BEGIN_SRC html :exports code
      <!doctype html>
@@ -609,12 +629,26 @@ First example of a function, a function that writes data to the console
        </body>
      </html>
    #+END_SRC
+** Exercise 4
+*** Exercise
+use the =document.createElement= function to make a single 
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <head>
+      <script>
+      </script>
+    </head>
+    <body>
+    </body>
+  </html>
+#+END_SRC
 ** Finding elements
    \pause
    + =document.getElementById= \pause
-   + =document.getElementsByTagName= \pause
-   + =*element*.firstChild= \pause
-   + =*node*.nodeValue=
+   + =.firstChild= \pause
+   + =.nodeValue=
 ** getElementById
 #+BEGIN_SRC html :exports code
     <body>
@@ -659,17 +693,33 @@ First example of a function, a function that writes data to the console
   </html>
 #+END_SRC
 
+** Exercise 5
+*** Exercise
+use =document.getElementById= and the =.style= property to change the text color of the paragraph to green
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <head>
+      <script>
+      </script>
+    </head>
+    <body>
+      <p id="para">Here's our text.</p>
+    </body>
+  </html>
+#+END_SRC
 * Wrapup
 ** What we've learned
    + What a webpage is \pause
      + HTML \pause
      + CSS \pause
-     + JavaScript \pause
+     + JavaScript
 ** What we've learned
    + HTML \pause
      + Elements \pause
      + Tags \pause
-     + Semantic markup
+     + Semantic markup \pause
      + Content, not appearance
 ** What we've learned
    + CSS \pause
