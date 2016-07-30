@@ -198,7 +198,7 @@ file:headlines.png
 #+END_SRC
 ** Lists
 *** 
-#+ATTR_LATEX: :width 5cm
+#+ATTR_LATEX: :width 9cm
 file:listylists.png
 ** Anchors and Attributes
 *** 
@@ -508,6 +508,11 @@ Variables function both as storage containers and pronouns
   var musicalsThatShouldExist = "The Walking Dead on Ice";
   musicalsThatShouldExist = "Werner Herzog Sings The Blues";
 #+END_SRC
+** Mini-exercise
+*** Test yourself
+Go to your console and try to
++ create a variable
++ change a variable
 ** Objects
    + Phone books \pause
    + Contact lists \pause
