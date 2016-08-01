@@ -65,7 +65,7 @@ In this vein, HTML is a /markup language/ for /hypertext/, or in more modern par
 
 #+BEGIN_SRC html :exports code :tangle firstHTML.html
   <body>
-    <h1>This is a headline</h1>
+    <h1>This is a header</h1>
     <p>This is a paragraph of text, where some of the text is <b>bold</b>, and
       after this paragraph, there will be a numbered list
     </p>
@@ -85,7 +85,7 @@ file:firstHTML.png
 
 So every pair like =<body>= and =</body>= are *opening* and *closing* tags that markup the text and other elements within them. The /body/ of our web page, which is the part we see, should be wrapped in =<body>= tags. 
 
-The other tags we see here are the =<h1>= tag, which is a /headline/ tag. The /headline/ tag denotes that the text "This is a headline" means something large and important, like a title, a section header, etc. This particular headline tag was =h1= but there's also =h2= through =h6=, which are progressively /smaller/ headlines as the number /increases/. The smaller headlines give us subsection names and other ways of organizing your text.
+The other tags we see here are the =<h1>= tag, which is a /header/ tag. The /header/ tag denotes that the text "This is a header" means something large and important, like a title, a section header, etc. This particular header tag was =h1= but there's also =h2= through =h6=, which are progressively /smaller/ headers as the number /increases/. The smaller headers give us subsection names and other ways of organizing your text.
 
 The /paragraph/ =p= marks all the text between the =<p>= and the =</p>= as a single paragraph.
 
@@ -168,15 +168,15 @@ Other elements for semantic markup are elements such as =<article>= or =<section
 ** The basic elements
    Now we'll go back to some of the basic elements that we need to cover in order to make a webpage. 
 
-   First, we've already seen the basic /headline/ element =<h1>=, which has variants of =<h1>= through =<h6>= for smaller and smaller sections. You will probably mostly find yourself using =<h1>= and =<h2>= to denote titles and sections the most, but if you're doing something more complicated like formatting a story or screenplay you might need even smaller headlines.
+   First, we've already seen the basic /header/ element =<h1>=, which has variants of =<h1>= through =<h6>= for smaller and smaller sections. You will probably mostly find yourself using =<h1>= and =<h2>= to denote titles and sections the most, but if you're doing something more complicated like formatting a story or screenplay you might need even smaller headers.
 
-   The file =headlineExample.html=, shown below, demonstrates the default relative sizes of the different types of headlines.
+   The file =headerExample.html=, shown below, demonstrates the default relative sizes of the different types of headers.
 
-#+BEGIN_SRC html :exports code :tangle headlineExample.html
+#+BEGIN_SRC html :exports code :tangle headerExample.html
   <!doctype html>
   <html>
     <body>
-      <h1>Big headline</h1>
+      <h1>Big header</h1>
       <h2>Smaller</h2>
       <h3>Smaller</h3>
       <h4>Even smaller</h4>
@@ -386,7 +386,7 @@ Let's look at an example that modifies all of our paragraph elements, changing t
         </style>
     </head>
       <body>
-        <h1 class="rebel">This time we also have a rebellious headline, 
+        <h1 class="rebel">This time we also have a rebellious header, 
 	which should be unchanged</h1>
   
         <p>Our first paragraph is here. There's some text and things of that ilk.</p>
@@ -401,7 +401,7 @@ Let's look at an example that modifies all of our paragraph elements, changing t
   </html>
 #+END_SRC
 
-If you look at this web page, which is in the file =combineSelection1.html=, you'll see that the headline isn't changed by having the rebel class but the /paragraph/ with the rebel class is effected. There are, of course, other ways 
+If you look at this web page, which is in the file =combineSelection1.html=, you'll see that the header isn't changed by having the rebel class but the /paragraph/ with the rebel class is effected. There are, of course, other ways 
 ** Setting style attributes directly
    One last topic is that it's possible to, essentially, shortcut the process of defining entries in a CSS file and, instead, set the CSS properties directly with the "style" attribute.
 

@@ -51,9 +51,9 @@
        <head>
          <script>
            window.onload = function () {
-              var newHeadline = document.createElement("h1");
-              newHeadline.appendChild(document.createTextNode("This is a headline!"));
-	      document.body.appendChild(newHeadline);
+              var newHeader = document.createElement("h1");
+              newHeader.appendChild(document.createTextNode("This is a header!"));
+	      document.body.appendChild(newHeader);
            };
          </script>
        </head>
@@ -63,10 +63,10 @@
      </html>
    #+END_SRC
 
-and if you put this code in a file, say =createElement.html=, and visit the file in your browser then you'll see a page that has a single headline.
+and if you put this code in a file, say =createElement.html=, and visit the file in your browser then you'll see a page that has a single header.
 
 #+LaTeX: \begin{framed}
-Exercise: Take the above code and modify it so that below the headline there is an ordered list with three list items inside them.
+Exercise: Take the above code and modify it so that below the header there is an ordered list with three list items inside them.
 #+LaTeX: \end{framed}
 ** Retrieving elements
    Being able to create items is all well and good, but much of the time we're not going to be creating an entire page from scratch and are, instead, going to modify elements that already exist. 
@@ -167,7 +167,7 @@ Exercise: Take the above web site and change the code so that it appends the ind
 ** Modifying CSS
    Another thing we can do, programmatically, is change the styles and CSS class associated with our data. First, we can access the style data for an element by using the =style= property. 
 
-   For example, we can change the font color of a headline using code as follows
+   For example, we can change the font color of a header using code as follows
 
 #+BEGIN_SRC html :exports code :tangle styleAccess.html
   <!doctype html>
@@ -175,13 +175,13 @@ Exercise: Take the above web site and change the code so that it appends the ind
     <head>
       <script>
         window.onload = function () {
-	  var h = document.getElementById("headline");
+	  var h = document.getElementById("header");
 	  h.style.color = "red";
         }
       </script>
     </head>
     <body>
-      <h1 id="headline">This is a headline!</h1>
+      <h1 id="header">This is a header!</h1>
     </body>
   </html>
 #+END_SRC
@@ -203,13 +203,13 @@ We can /also/ change the CSS class of an element, using the property =classList=
       </style>
       <script>
         window.onload = function () {
-           var h = document.getElementById("headline");
+           var h = document.getElementById("header");
            h.classList.add("reddish");
         };
       </script>
     </head>
     <body>
-      <h1 id="headline">This is a headline</h1>
+      <h1 id="header">This is a header</h1>
     </body>
   </html>
 #+END_SRC
@@ -222,7 +222,7 @@ Similarly to the above example, you can /remove/ a class with =classList.remove=
 
    Events are the connection between the user-interface and the code. Every time you click, type, or move your mouse the browser registers it as an /event/. Normally, nothing happens when these events fire, but you can add code that /listens/ for an event and then runs some function.
 
-   Our first example will be the =mouseover= event. We're going to have a webpage with just a simple headline that changes color when you mouse over it. To do this, we're going to /add/ an event listener to the headline element for the =mouseover= event that will change the color to red and an event listener for the =mouseleave= event that will turn it back to black when you move the mouse away.
+   Our first example will be the =mouseover= event. We're going to have a webpage with just a simple header that changes color when you mouse over it. To do this, we're going to /add/ an event listener to the header element for the =mouseover= event that will change the color to red and an event listener for the =mouseleave= event that will turn it back to black when you move the mouse away.
 
 
 #+BEGIN_SRC html :exports code :tangle firstEvents.html
@@ -232,7 +232,7 @@ Similarly to the above example, you can /remove/ a class with =classList.remove=
     <head>
       <script>
         window.onload = function () {
-	   var h = document.getElementById("headline");
+	   var h = document.getElementById("header");
 	   
 	   h.addEventListener("mouseover", function () {
 	      this.style.color = "red";
@@ -245,7 +245,7 @@ Similarly to the above example, you can /remove/ a class with =classList.remove=
       </script>
     </head>
     <body>
-      <h1 id="headline">This is our headline!</h1>
+      <h1 id="header">This is our header!</h1>
     </body>
   </html>
 #+END_SRC

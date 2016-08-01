@@ -58,7 +58,7 @@
 *** 
 #+BEGIN_SRC html :exports code
   <body>
-    <h1>This is a headline</h1>
+    <h1>This is a header</h1>
     <p>This is a paragraph of text, 
         where some of the text is <b>bold</b>, and
         after this paragraph, there will be a numbered list
@@ -82,6 +82,46 @@
       <li> where does this part go?
       <li> is it a sublist or a second list?
       
+#+END_SRC
+** Whence closing tags
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** This?
+file:noClose1.png
+#+BEGIN_SRC html :exports none :tangle noClose1.html
+  <body>
+    <ol>
+      <li>This is a list</li>
+      <li>but</li>
+      <li>there's ambiguity here</li>
+    </ol>
+    <ol>
+      <li> where does this part go?</li>
+      <li> is it a sublist or a second list?</li>
+    </ol>
+  </body>
+#+END_SRC
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Or this?
+file:noClose2.png
+#+BEGIN_SRC html :exports none :tangle noClose2.html
+  <body>
+    <ol>
+      <li>This is a list</li>
+      <li>but</li>
+      <li>there's ambiguity here
+        <ol>
+          <li> where does this part go?</li>
+          <li> is it a sublist or a second list?</li>
+        </ol>
+      </li>
+    </ol>
+  </body>
 #+END_SRC
 ** Whence closing tags
 *** With closing tags
@@ -131,38 +171,24 @@
 #+END_SRC
 ** Semantic markup
 *** 
-#+ATTR_LATEX: :width 5cm
+#+ATTR_LATEX: :width 9cm
 file:strongB.png
 ** Semantic markup
    + =<strong>= vs. =<b>= \pause
    + =<em>= vs. =<i>= \pause
    + =<article>= \pause
    + =<section>=
-** Exercise 1
-*** 
-#+LaTeX: {\Large {\scshape
-Make your own page following the template below: use at least two of the following tags =<ol>=, =<ul>=, =<h1>=, =<p>=, =<b>=, and =<i>=
-#+LaTeX: }}
-*** 
-#+BEGIN_SRC html :exports code
-  <!doctype html>
-  <html>
-    <body>
-      your code here
-    </body>
-  </html>
-#+END_SRC
-** Headlines
+** Headers
 *** 								      :BMCOL:
     :PROPERTIES:
     :BEAMER_col: 0.45
     :END:
 **** 
-#+BEGIN_SRC html :exports code 
+#+BEGIN_SRC html :exports code :tangle headings.html 
   <!doctype html>
   <html>
     <body>
-      <h1>Big headline</h1>
+      <h1>Big heading</h1>
       <h2>Smaller</h2>
       <h3>Smaller</h3>
       <h4>Even smaller</h4>
@@ -176,7 +202,7 @@ Make your own page following the template below: use at least two of the followi
     :BEAMER_col: 0.45
     :END:
 **** 
-file:headlines.png
+file:headings.png
 ** Lists
 *** 
 #+BEGIN_SRC html :exports code
@@ -200,6 +226,22 @@ file:headlines.png
 *** 
 #+ATTR_LATEX: :width 9cm
 file:listylists.png
+** Nesting
+*** What goes in what
+** Exercise 1
+*** 
+#+LaTeX: {\Large
+Make your own page following the template below: use at least two of the following tags =<ol>=, =<ul>=, =<h1>=, =<p>=, =<b>=, and =<i>=
+#+LaTeX: }
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+  <html>
+    <body>
+      your code here
+    </body>
+  </html>
+#+END_SRC
 ** Anchors and Attributes
 *** 
 ~<a href="https://multcolib.org">This is a link</a>~
@@ -368,7 +410,7 @@ file:byType.png
 ** Specificity							   :noexport:
 *** 
 #+BEGIN_SRC html
-  <h1 class="rebel">This time we also have a rebellious headline, 
+  <h1 class="rebel">This time we also have a rebellious header, 
   which should be unchanged</h1>
   
   <p>Our first paragraph is here.
@@ -622,11 +664,11 @@ Navigate to the file =consoleExample.html= and then check the console to see wha
        <head>
          <script>
            window.onload = function () {
-              var newHeadline = document.createElement("h1");
+              var newHeader = document.createElement("h1");
               var textNode = document
-                .createTextNode("This is a headline!");
-              newHeadline.appendChild(textNode);
-              document.body.appendChild(newHeadline);
+                .createTextNode("This is a header!");
+              newHeader.appendChild(textNode);
+              document.body.appendChild(newHeader);
            };
          </script>
        </head>
@@ -687,13 +729,13 @@ use the =document.createElement= function to make a single
     <head>
       <script>
         window.onload = function () {
-	  var h = document.getElementById("headline");
+	  var h = document.getElementById("header");
 	  h.style.color = "red";
         }
       </script>
     </head>
     <body>
-      <h1 id="headline">This is a headline!</h1>
+      <h1 id="header">This is a header!</h1>
     </body>
   </html>
 #+END_SRC

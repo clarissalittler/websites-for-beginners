@@ -4,3 +4,8 @@
   + Include more of an explanation for what the console is and why you use =console.log=
   + Switch around the explanation of javascript syntax so its interleaved with the DOM explanation
   + Include more explicit resources in the final slides
+* Code your own site
+** Shorten the class a bit
+   So part of the problem is that I can /lecture/ through /all/ of the material, or I can do hands on exercises to get through /some/ of the material. What I think this means is that we need just need to rearrange the course a bit to be more focused on the first two parts and just admit that it's very unlikely for us to get through the JavaScript material.
+
+   I think there just need to be more in-class examples in general to try and work through.
