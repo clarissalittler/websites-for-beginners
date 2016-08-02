@@ -400,42 +400,6 @@ Open the file =exer3.html= and then add in CSS declarations to make both paragra
 *** 
 #+ATTR_LATEX: :width 5cm
 file:byType.png
-** Specificity
-*** 
-#+BEGIN_SRC css :exports code
-  p {
-      font-size: large;
-      background-color: green;
-      color: blue;
-      width: 200px;
-  }
-  p.rebel {
-      width: 300px;
-      background-color: white;
-  }
-#+END_SRC
-** Specificity
-*** 
-#+BEGIN_SRC html
-  <h1 class="rebel">This time we also have a rebellious header, 
-  which should be unchanged</h1>
-  
-  <p>Our first paragraph is here.
-    There's some text and things of that ilk.</p>
-  <p class="rebel">This is our second paragraph, 
-    beholden to no one but itself. 
-    A wild rebel of a paragraph</p>
-  <p>Our third paragraph lies here,
-    relentless in its comformity. 
-    There's not much to say about ol' thirdy, 
-    they're simply stoic and resolute
-    in their paragraphness.</p>
-  </div>
-#+END_SRC
-** Specificity
-*** 
-#+ATTR_LATEX: :width 11cm
-file:specific.png
 ** Another example with divs
 *** 
 #+BEGIN_SRC css :exports code
@@ -479,8 +443,136 @@ file:specific.png
 *** 
 #+ATTR_LATEX: :width 11cm
 file:screenplay.png
+
+** Specificity
+*** combining type and class
+#+BEGIN_SRC css :exports code
+  p {
+      font-size: large;
+      background-color: green;
+      color: blue;
+      width: 200px;
+  }
+  p.rebel {
+      width: 300px;
+      background-color: white;
+  }
+#+END_SRC
+** Specificity
+*** 
+#+BEGIN_SRC html
+  <h1 class="rebel">This time we also have a rebellious header, 
+  which should be unchanged</h1>
+  
+  <p>Our first paragraph is here.
+    There's some text and things of that ilk.</p>
+  <p class="rebel">This is our second paragraph, 
+    beholden to no one but itself. 
+    A wild rebel of a paragraph</p>
+  <p>Our third paragraph lies here,
+    relentless in its comformity. 
+    There's not much to say about ol' thirdy, 
+    they're simply stoic and resolute
+    in their paragraphness.</p>
+  </div>
+#+END_SRC
+** Specificity
+*** 
+#+ATTR_LATEX: :width 11cm
+file:specific.png
+** Specificity
+*** choosing children of an element
+#+BEGIN_SRC css :exports code
+        #divvy p{
+          width: 200px;
+          font-weight: bold;
+        }
+#+END_SRC
+
+#+BEGIN_SRC html :exports none :tangle childExample.html
+  <!doctype html>
+  <html>
+    <head>
+      <style>
+        #divvy p{
+          width: 200px;
+          font-weight: bold;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="divvy">
+        <p> Here we're going to have some text </p>
+        <p> and a little more even, in a separate paragraph. </p>
+
+        <ul>
+          <li>but this shouldn't be effected by our code at all</li>
+        </ul>
+      </div>
+      <p>Neither should anything in here, either</p>
+    </body>
+  </html>
+#+END_SRC
+** Specificity
+*** choosing children of an element
+#+BEGIN_SRC html :exports code
+  <div id="divvy">
+    <p> Here we're going to have some text </p>
+    <p> and a little more even, in a separate paragraph. </p>
+
+    <ul>
+      <li>but this shouldn't be effected by our code at all</li>
+    </ul>
+  </div>
+  <p>Neither should anything in here, either</p>
+#+END_SRC
+** Specificity
+*** 
+#+ATTR_LATEX: 9cm
+file:childExample.png
 ** Exercise 4
-***  
+*** 
+#+LaTeX: {\large
+Using the following skeleton, found in =exer4.html=, add CSS declarations so that the first paragraph has /blue/ text, the second paragraph has /red/ text, and the third paragraph has /green/ text.
+#+LaTeX: }
+*** 
+#+BEGIN_SRC html :exports code :tangle exer4.html
+  <body>
+    <p>our first paragraph</p>
+    <div>
+      <p>our second paragraph</p>
+      <div>
+        <p>our third paragraph </p>
+      </div>
+  </body>
+#+END_SRC
+
+#+BEGIN_SRC html :exports code :tangle exer4sol.html
+  <!doctype html>
+  <html>
+    <head>
+      <style>
+        p {
+          color: blue;
+        }
+        div p {
+          color: red;
+        }
+        div div p {
+          color: green;
+        }
+      </style>
+    </head>
+    <body>
+      <p>our first paragraph</p>
+      <div>
+        <p>our second paragraph</p>
+        <div>
+          <p>our third paragraph </p>
+        </div>
+    </body>
+  </html>
+#+END_SRC
 * JavaScript
 ** What is JavaScript?
 *** 
