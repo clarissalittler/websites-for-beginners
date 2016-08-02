@@ -547,7 +547,7 @@ Using the following skeleton, found in =exer4.html=, add CSS declarations so tha
   </body>
 #+END_SRC
 
-#+BEGIN_SRC html :exports code :tangle exer4sol.html
+#+BEGIN_SRC html :exports none :tangle exer4sol.html
   <!doctype html>
   <html>
     <head>
