@@ -9,7 +9,7 @@
 * What is this class?
 ** What we'll cover
    + The basic technology that goes into a webpage \pause
-   + Simple examples of how to use HTML, CSS, and JavaScript \pause
+   + Simple examples of how to use HTML and CSS \pause and maybe JavaScript \pause
    + Resources to continue your learning
 ** What we won't cover
    + How to build the back-end of a site \pause
