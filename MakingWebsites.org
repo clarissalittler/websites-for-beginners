@@ -80,8 +80,7 @@
       <li> there's ambiguity here
     <ol>
       <li> where does this part go?
-      <li> is it a sublist or a second list?
-      
+      <li> is it a sublist or a second list?      
 #+END_SRC
 ** Whence closing tags
 *** 								      :BMCOL:
@@ -151,33 +150,6 @@ file:noClose2.png
     </body>
   </html>
 #+END_SRC
-** Semantic markup
-*** Markup is about meaning
-    Tags should be used with intended /meaning/ in mind
-** Semantic markup
-*** 
-#+BEGIN_SRC html :exports code
-  <!doctype html>
-
-  <html>
-    <body>
-      Here we have 
-      <b>some bold text</b> 
-      and some 
-      <strong>strong text</strong>. 
-      They look identical by default.
-    </body>
-  </html>
-#+END_SRC
-** Semantic markup
-*** 
-#+ATTR_LATEX: :width 9cm
-file:strongB.png
-** Semantic markup
-   + =<strong>= vs. =<b>= \pause
-   + =<em>= vs. =<i>= \pause
-   + =<article>= \pause
-   + =<section>=
 ** Headers
 *** 								      :BMCOL:
     :PROPERTIES:
@@ -228,6 +200,9 @@ file:headings.png
 file:listylists.png
 ** Nesting
 *** What goes in what
+    + paragraphs can't nest in paragraphs \pause
+    + headers can't nest in headers \pause
+    + lists /can/ nest in lists
 ** Exercise 1
 *** 
 #+LaTeX: {\Large
@@ -247,9 +222,37 @@ Make your own page following the template below: use at least two of the followi
 ~<a href="https://multcolib.org">This is a link</a>~
 ** Exercise 2
 *** 
-#+LaTeX: {\Large {\scshape
+#+LaTeX: {\Large
 Create your own page that uses at least two links and test them to ensure they work
-#+LaTeX: }}
+#+LaTeX: }
+** Semantic markup						   :noexport:
+*** Markup is about meaning
+    Tags should be used with intended /meaning/ in mind
+** Semantic markup						   :noexport:
+*** 
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+
+  <html>
+    <body>
+      Here we have 
+      <b>some bold text</b> 
+      and some 
+      <strong>strong text</strong>. 
+      They look identical by default.
+    </body>
+  </html>
+#+END_SRC
+** Semantic markup						   :noexport:
+*** 
+#+ATTR_LATEX: :width 9cm
+file:strongB.png
+** Semantic markup						   :noexport:
+   + =<strong>= vs. =<b>= \pause
+   + =<em>= vs. =<i>= \pause
+   + =<article>= \pause
+   + =<section>=
+
 ** Inline and Block Elements
 *** 								      :BMCOL:
     :PROPERTIES:
@@ -354,14 +357,18 @@ file:byClass.png
 #+LaTeX: {\Large
 Open the file =exer3.html= and then add in CSS declarations to make both paragraphs have =width: 200px= and the first paragraph have a color of =blue=
 #+LaTeX: }
-#+BEGIN_SRC html :exports none :tangle exer3.html
+*** 
+#+BEGIN_SRC html :exports code :tangle exer3.html
   <!doctype html>
   <html>
     <head>
     </head>
     <body>
-      <p class="theClass" id="firstPara">This is a paragraph that has some text in it and, y'know, stuff and things</p>
-      <p class="theClass" id="sndPara">This is the second paragraph by gum</p>
+      <p class="theClass" id="firstPara">
+      This is a paragraph that has some text in it 
+      and, y'know, stuff and things</p>
+      <p class="theClass" id="sndPara">
+        This is the second paragraph by gum</p>
     </body>
   </html>
 #+END_SRC
@@ -393,7 +400,7 @@ Open the file =exer3.html= and then add in CSS declarations to make both paragra
 *** 
 #+ATTR_LATEX: :width 5cm
 file:byType.png
-** Specificity							   :noexport:
+** Specificity
 *** 
 #+BEGIN_SRC css :exports code
   p {
@@ -407,7 +414,7 @@ file:byType.png
       background-color: white;
   }
 #+END_SRC
-** Specificity							   :noexport:
+** Specificity
 *** 
 #+BEGIN_SRC html
   <h1 class="rebel">This time we also have a rebellious header, 
@@ -425,7 +432,7 @@ file:byType.png
     in their paragraphness.</p>
   </div>
 #+END_SRC
-** Specificity							   :noexport:
+** Specificity
 *** 
 #+ATTR_LATEX: :width 11cm
 file:specific.png
@@ -472,6 +479,8 @@ file:specific.png
 *** 
 #+ATTR_LATEX: :width 11cm
 file:screenplay.png
+** Exercise 4
+***  
 * JavaScript
 ** What is JavaScript?
 *** 
