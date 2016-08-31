@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html>
+  <head>
+    <script>
+      window.onload = function () {
+        var h = document.getElementById("heading");
+        h.addEventListener("mouseover", function () {
+          this.style.color = "red";
+        });
+        h.addEventListener("mouseleave", function () {
+         this.style.color = "black";
+        });
+      };
+    </script>
+    </head>
+    <body>
+      <h1 id="heading">This is our heading!</h1>
+    </body>
+</html>
